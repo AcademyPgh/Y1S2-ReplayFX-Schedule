@@ -3,6 +3,7 @@
 import React from 'react';
 import CounterViewContainer from './counter/CounterViewContainer';
 import ColorViewContainer from './colors/ColorViewContainer';
+import Hello from './helloworld/hello'
 
 /**
  * AppRouter is responsible for mapping a navigator scene to a view

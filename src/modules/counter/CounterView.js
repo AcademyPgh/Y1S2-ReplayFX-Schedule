@@ -62,7 +62,7 @@ const CounterView = React.createClass({
     return (
       <View style={styles.container}>
 
-        {this.renderUserInfo()}
+        <Text>Hello there</Text>
 
         <TouchableOpacity
           onPress={this.increment}

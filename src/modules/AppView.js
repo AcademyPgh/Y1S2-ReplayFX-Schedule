@@ -5,6 +5,7 @@ import * as snapshotUtil from '../utils/snapshot';
 import * as SessionStateActions from '../modules/session/SessionState';
 import store from '../redux/store';
 import DeveloperMenu from '../components/DeveloperMenu';
+import Hello from './helloworld/hello'
 
 const AppView = React.createClass({
   propTypes: {
@@ -39,7 +40,7 @@ const AppView = React.createClass({
 
     return (
       <View style={{flex: 1}}>
-        <NavigationViewContainer />
+        <Hello />
         {__DEV__ && <DeveloperMenu />}
       </View>
     );
