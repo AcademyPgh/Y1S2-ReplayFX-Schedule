@@ -28,7 +28,7 @@ const Schedule = () => (
       'endtime': '24:00',
       'description': 'Come to the Console Lounge!',
       'type':
-      ['Games', 'Favorties']
+      ['Games', 'Favorites']
     },
     {
       'id': 4,
@@ -48,7 +48,7 @@ const Schedule = () => (
       'endtime': '12:15',
       'description': 'Come for round 1!',
       'type':
-     ['Competition', 'Favorties']
+     ['Competition', 'Favorites']
     },
     {
       'id': 6,
@@ -68,7 +68,7 @@ const Schedule = () => (
       'endtime': '18:00',
       'description': 'Sounds super fun!',
       'type':
-       ['Competition', 'Favorties']
+       ['Competition', 'Favorites']
     },
     {
       'id': 8,
@@ -88,7 +88,7 @@ const Schedule = () => (
       'endtime': '18:15',
       'description': 'Yet another round',
       'type':
-       ['Competition', 'Favorties']
+       ['Competition', 'Favorites']
     },
     {
       'id': 10,
@@ -108,7 +108,7 @@ const Schedule = () => (
       'endtime': '20:15',
       'description': 'Some kind of prize is being raffled.',
       'type':
-       ['Other', 'Favorties']
+       ['Other', 'Favorites']
     },
     {
       'id': 12,

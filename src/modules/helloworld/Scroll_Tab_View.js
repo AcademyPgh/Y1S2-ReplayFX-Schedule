@@ -20,7 +20,8 @@ export default class Scroll_Tab_View extends Component {
       {name: 'Compete', value: 'Competition'},
       {name: 'Watch', value: 'Movies'},
       {name: 'Listen', value: 'Music'},
-      {name: 'Learn', value: 'Seminar'}
+      {name: 'Learn', value: 'Seminar'},
+      {name: 'My Schedule', value: 'Favorites'}
       ]
     };
   }

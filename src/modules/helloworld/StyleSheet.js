@@ -66,6 +66,10 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 30,
     fontWeight: 'bold'
+  },
+  favorites: {
+    color: 'yellow',
+    fontWeight: 'bold'
   }
 });
 

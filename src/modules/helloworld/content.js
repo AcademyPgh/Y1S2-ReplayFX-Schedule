@@ -7,11 +7,10 @@ import {
   TouchableHighlight,
   Modal
 } from 'react-native';
-import autobind from 'class-autobind';
 import styles from './StyleSheet';
 
 import content_sections from './content_sections';
-
+import ListItem from './test_button_change';
 export default class Content extends Component {
   constructor(props) {
     super(props);
@@ -25,20 +24,21 @@ export default class Content extends Component {
       someText: 'App Made By Academy Pittsburgh',
       modalVisible: false,
       modalTitle: '',
-      modalDescription: ''
+      modalDescription: '',
+      temp: 'navy'
     };
     this.renderScheduleItem = this.renderScheduleItem.bind(this);
     this.setModalVisible = this.setModalVisible.bind(this);
   }
-  onButtonPress() {
-    //This is where we will display "more description"
-    // this.setState({modalVisible: true});
-    Alert.alert('hi');
-
+  mainButton() {
+    return <Text style={styles.header}>[*]</Text>;
   }
+  changeButton() {
+    return <Text style={styles.favorites}>[*]</Text>;
+  }
+
   setModalVisible(visible, title, description) {
     this.setState({modalVisible: visible, modalTitle: title, modalDescription: description});
-
   }
   renderScheduleItem(item) {
     return (
@@ -52,6 +52,12 @@ export default class Content extends Component {
           this.setModalVisible(true, item.title, item.description);
         }}>
           <Text>[+]</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight onPress={() => {
+          this.temp = 'yellow';
+        }}>
+        <Text style= {this.temp}>[*] </Text>
         </TouchableHighlight>
 
        </View>
