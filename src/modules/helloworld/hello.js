@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Scroll_Tab_View from './Scroll_Tab_View';
 import {
   View,
-  StyleSheet,
   Image
 } from 'react-native';
 
@@ -18,13 +17,3 @@ export default class Blink extends Component {
     );
   }
 }
-const styles = StyleSheet.create({
-  bigblue: {
-    color: 'blue',
-    fontWeight: 'bold',
-    fontSize: 30
-  },
-  red: {
-    color: 'red'
-  }
-});

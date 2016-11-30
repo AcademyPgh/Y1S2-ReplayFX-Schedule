@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {
-  StyleSheet,
   Text,
   View,
   ListView,
@@ -8,6 +7,7 @@ import {
   Alert,
   TouchableHighlight
 } from 'react-native';
+import styles from './StyleSheet';
 
 import content_sections from './content_sections';
 
@@ -31,9 +31,9 @@ export default class Content extends Component {
   renderScheduleItem(item) {
     return (<TouchableHighlight underlayColor='#000000'>
       <View>
-        <Text style={dayStyles.title}>{item.title}</Text>
-        <Text style={dayStyles.datetime}>@ {item.starttime} - {item.endtime}</Text>
-        <Text style={dayStyles.description}>{item.description}</Text>
+        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.datetime}>@ {item.starttime} - {item.endtime}</Text>
+        <Text style={styles.description}>{item.description}</Text>
       </View>
     </TouchableHighlight>);
 
@@ -41,13 +41,13 @@ export default class Content extends Component {
 
   renderSectionHeader(sectionData, category) {
     return (<View>
-      <Text style={dayStyles.header}>{category}</Text>
+      <Text style={styles.header}>{category}</Text>
     </View>);
   }
 
   render() {
     return (
-      <View style={dayStyles.container}>
+      <View style={styles.container}>
         <Text>{this.state.someText}</Text>
         <ListView
           dataSource={this.state.dataSource}
@@ -58,38 +58,3 @@ export default class Content extends Component {
     );
   }
 }
-
-const dayStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5
-  },
-  title: {
-    color: '#333333',
-    fontSize: 20,
-    backgroundColor: '#E5ECEE'
-  },
-  description: {
-    fontSize: 15
-  },
-  datetime: {
-    textAlign: 'center'
-  },
-  header: {
-    color: '#FFFFFF',
-    backgroundColor: '#222222'
-  }
-
-});

@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import {
-  StyleSheet,
-  Text,
   View
 } from 'react-native';
+import styles from './StyleSheet';
 
-import ScrollableTabView from 'react-native-scrollable-tab-view';
+import ScrollableTabView, {ScrollableTabBar} from 'react-native-scrollable-tab-view';
 import Content from './content';
 // Using tabBarPosition='overlayTop' or 'overlayBottom' lets the content show through a
 // semitransparent tab bar. Note that if you build a custom tab bar component, its outer container
@@ -27,7 +26,7 @@ export default class Scroll_Tab_View extends Component {
   }
   render() {
     return (
-        <ScrollableTabView >
+        <ScrollableTabView renderTabBar = {() => <ScrollableTabBar />} >
           {this.state.tabs.map((item, index) =>
           {return (<View style={styles.slide2} tabLabel= {item.name} key = {index}>
             <Content typeIs={item.value}/>
@@ -36,47 +35,3 @@ export default class Scroll_Tab_View extends Component {
     );
   }
 }
-var styles = StyleSheet.create({
-  header: {
-    flex: 2,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  wrapper: {
-  },
-  slide1: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#9DD6EB'
-  },
-  slide2: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#97CAE5'
-  },
-  slide3: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#92BBD9'
-  },
-  text: {
-    color: '#fff',
-    fontSize: 30,
-    fontWeight: 'bold'
-  }
-});
-/*
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 30
-  },
-  icon: {
-    width: 300,
-    height: 300,
-    alignSelf: 'center'
-  }
-});
-*/
