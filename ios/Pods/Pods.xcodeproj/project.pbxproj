@@ -7,56 +7,64 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9F7679429F9BB33B34186875E5DC3774 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		E46C78C785BEA1933D80B9647D1B10C8 /* Pods-PepperoniAppTemplate-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7078E44A1746B3B8B95FE3CB65BA1A41 /* Pods-PepperoniAppTemplate-dummy.m */; };
+		28262D223A5A2686F26FCF59E3A4F0A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		CD897BE0EE612D92E63C34E972147115 /* Pods-replayfxschedule-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA87D78287A929CFEF2B840304BAE97 /* Pods-replayfxschedule-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6FAE99AABEA0EF8E95AF94ED55190B08 /* Pods-PepperoniAppTemplate-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PepperoniAppTemplate-acknowledgements.markdown"; sourceTree = "<group>"; };
-		7078E44A1746B3B8B95FE3CB65BA1A41 /* Pods-PepperoniAppTemplate-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PepperoniAppTemplate-dummy.m"; sourceTree = "<group>"; };
-		7FE4C2D42EC892AE198F525B9BF4D817 /* Pods-PepperoniAppTemplate-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PepperoniAppTemplate-resources.sh"; sourceTree = "<group>"; };
+		2A48C21408EC8CA95006D4E27D0DBA9E /* Pods-replayfxschedule-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-replayfxschedule-resources.sh"; sourceTree = "<group>"; };
+		2AA87D78287A929CFEF2B840304BAE97 /* Pods-replayfxschedule-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-replayfxschedule-dummy.m"; sourceTree = "<group>"; };
+		42688BFE40D9A0F39C67119E3824BB59 /* Pods-replayfxschedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-replayfxschedule.release.xcconfig"; sourceTree = "<group>"; };
+		4F28DDAA5FD39EF8FCA1C9CB400B060F /* Pods-replayfxschedule-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-replayfxschedule-acknowledgements.markdown"; sourceTree = "<group>"; };
+		61F7A812DE99EBAF0E20B05EFD4A2CA4 /* Pods-replayfxschedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-replayfxschedule.debug.xcconfig"; sourceTree = "<group>"; };
+		8ECF9A5083FEE522086A25EEC53EBA10 /* Pods-replayfxschedule-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-replayfxschedule-frameworks.sh"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9649AB7DA4D60386B5FD9013D117BFED /* Pods-PepperoniAppTemplate-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PepperoniAppTemplate-frameworks.sh"; sourceTree = "<group>"; };
-		B0DBDA5B6ED58344C6E8EE058BA07372 /* libPods-PepperoniAppTemplate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-PepperoniAppTemplate.a"; path = "libPods-PepperoniAppTemplate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C4FA8D3311C3000EBE5EB06F8C6CAF66 /* Pods-PepperoniAppTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PepperoniAppTemplate.debug.xcconfig"; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		EAF4942AA9D3DEEB7BA699BC3B9B5969 /* Pods-PepperoniAppTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PepperoniAppTemplate.release.xcconfig"; sourceTree = "<group>"; };
-		FA46FED397617DF092A7E2A73E988595 /* Pods-PepperoniAppTemplate-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PepperoniAppTemplate-acknowledgements.plist"; sourceTree = "<group>"; };
+		E694BA9A9242ACEF658B5A367D430635 /* Pods-replayfxschedule-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-replayfxschedule-acknowledgements.plist"; sourceTree = "<group>"; };
+		F9FB8CE5E4E695056CF28AA9F003F2B8 /* libPods-replayfxschedule.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-replayfxschedule.a"; path = "libPods-replayfxschedule.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C9E41A1F7B81A47276B05071D174E96C /* Frameworks */ = {
+		E33D5A476BDAB680775B2425BEBFDF90 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F7679429F9BB33B34186875E5DC3774 /* Foundation.framework in Frameworks */,
+				28262D223A5A2686F26FCF59E3A4F0A0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E905C4AF5B577F893594A25AE9EF8D0 /* Pods-PepperoniAppTemplate */ = {
+		0AA00CF10AB97AE3575C77DCD6FFA196 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				6FAE99AABEA0EF8E95AF94ED55190B08 /* Pods-PepperoniAppTemplate-acknowledgements.markdown */,
-				FA46FED397617DF092A7E2A73E988595 /* Pods-PepperoniAppTemplate-acknowledgements.plist */,
-				7078E44A1746B3B8B95FE3CB65BA1A41 /* Pods-PepperoniAppTemplate-dummy.m */,
-				9649AB7DA4D60386B5FD9013D117BFED /* Pods-PepperoniAppTemplate-frameworks.sh */,
-				7FE4C2D42EC892AE198F525B9BF4D817 /* Pods-PepperoniAppTemplate-resources.sh */,
-				C4FA8D3311C3000EBE5EB06F8C6CAF66 /* Pods-PepperoniAppTemplate.debug.xcconfig */,
-				EAF4942AA9D3DEEB7BA699BC3B9B5969 /* Pods-PepperoniAppTemplate.release.xcconfig */,
-			);
-			name = "Pods-PepperoniAppTemplate";
-			path = "Target Support Files/Pods-PepperoniAppTemplate";
-			sourceTree = "<group>";
-		};
-		3B83AC60B2FF228F4A24BE944FF0F4BC /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				0E905C4AF5B577F893594A25AE9EF8D0 /* Pods-PepperoniAppTemplate */,
+				28655B565BE60573BE44C43FDEF3AF4C /* Pods-replayfxschedule */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		28655B565BE60573BE44C43FDEF3AF4C /* Pods-replayfxschedule */ = {
+			isa = PBXGroup;
+			children = (
+				4F28DDAA5FD39EF8FCA1C9CB400B060F /* Pods-replayfxschedule-acknowledgements.markdown */,
+				E694BA9A9242ACEF658B5A367D430635 /* Pods-replayfxschedule-acknowledgements.plist */,
+				2AA87D78287A929CFEF2B840304BAE97 /* Pods-replayfxschedule-dummy.m */,
+				8ECF9A5083FEE522086A25EEC53EBA10 /* Pods-replayfxschedule-frameworks.sh */,
+				2A48C21408EC8CA95006D4E27D0DBA9E /* Pods-replayfxschedule-resources.sh */,
+				61F7A812DE99EBAF0E20B05EFD4A2CA4 /* Pods-replayfxschedule.debug.xcconfig */,
+				42688BFE40D9A0F39C67119E3824BB59 /* Pods-replayfxschedule.release.xcconfig */,
+			);
+			name = "Pods-replayfxschedule";
+			path = "Target Support Files/Pods-replayfxschedule";
+			sourceTree = "<group>";
+		};
+		3F9421EA3F7C45531B480B0280955A8F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F9FB8CE5E4E695056CF28AA9F003F2B8 /* libPods-replayfxschedule.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
@@ -72,17 +80,9 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				9DFDE9AE30417C90B62C448140F63FAD /* Products */,
-				3B83AC60B2FF228F4A24BE944FF0F4BC /* Targets Support Files */,
+				3F9421EA3F7C45531B480B0280955A8F /* Products */,
+				0AA00CF10AB97AE3575C77DCD6FFA196 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		9DFDE9AE30417C90B62C448140F63FAD /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B0DBDA5B6ED58344C6E8EE058BA07372 /* libPods-PepperoniAppTemplate.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -96,20 +96,20 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0AAB1E4570FB43F4AC093289A42A9076 /* Pods-PepperoniAppTemplate */ = {
+		32A61546AF1093A0B49A0E9AE0EA3882 /* Pods-replayfxschedule */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F8433F866A3C7BA4B9D6097A336FD46A /* Build configuration list for PBXNativeTarget "Pods-PepperoniAppTemplate" */;
+			buildConfigurationList = 0C124445FE266F4992DCC546D508A46E /* Build configuration list for PBXNativeTarget "Pods-replayfxschedule" */;
 			buildPhases = (
-				F86ED75646F6818AAD3AA26C216C5DFB /* Sources */,
-				C9E41A1F7B81A47276B05071D174E96C /* Frameworks */,
+				AB9BD1436FD43F4912E85A6D6DE0B712 /* Sources */,
+				E33D5A476BDAB680775B2425BEBFDF90 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-PepperoniAppTemplate";
-			productName = "Pods-PepperoniAppTemplate";
-			productReference = B0DBDA5B6ED58344C6E8EE058BA07372 /* libPods-PepperoniAppTemplate.a */;
+			name = "Pods-replayfxschedule";
+			productName = "Pods-replayfxschedule";
+			productReference = F9FB8CE5E4E695056CF28AA9F003F2B8 /* libPods-replayfxschedule.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -129,21 +129,21 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 9DFDE9AE30417C90B62C448140F63FAD /* Products */;
+			productRefGroup = 3F9421EA3F7C45531B480B0280955A8F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0AAB1E4570FB43F4AC093289A42A9076 /* Pods-PepperoniAppTemplate */,
+				32A61546AF1093A0B49A0E9AE0EA3882 /* Pods-replayfxschedule */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F86ED75646F6818AAD3AA26C216C5DFB /* Sources */ = {
+		AB9BD1436FD43F4912E85A6D6DE0B712 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E46C78C785BEA1933D80B9647D1B10C8 /* Pods-PepperoniAppTemplate-dummy.m in Sources */,
+				CD897BE0EE612D92E63C34E972147115 /* Pods-replayfxschedule-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,9 +234,9 @@
 			};
 			name = Release;
 		};
-		94C74819C32497DCEDF0E2322709447D /* Debug */ = {
+		BC9A612AF15149F5A5C3BDEB9A808706 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4FA8D3311C3000EBE5EB06F8C6CAF66 /* Pods-PepperoniAppTemplate.debug.xcconfig */;
+			baseConfigurationReference = 61F7A812DE99EBAF0E20B05EFD4A2CA4 /* Pods-replayfxschedule.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -257,9 +257,9 @@
 			};
 			name = Debug;
 		};
-		FB2B7A94091A0148727E3A1FB35DD270 /* Release */ = {
+		F85FDBBF3E6B471F30DCC4F85F607079 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAF4942AA9D3DEEB7BA699BC3B9B5969 /* Pods-PepperoniAppTemplate.release.xcconfig */;
+			baseConfigurationReference = 42688BFE40D9A0F39C67119E3824BB59 /* Pods-replayfxschedule.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -283,20 +283,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0C124445FE266F4992DCC546D508A46E /* Build configuration list for PBXNativeTarget "Pods-replayfxschedule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC9A612AF15149F5A5C3BDEB9A808706 /* Debug */,
+				F85FDBBF3E6B471F30DCC4F85F607079 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				015A368F878AC3E2CEAE21DDE8026304 /* Debug */,
 				44CDBB6D11DE06DB64D6268622BDC47E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F8433F866A3C7BA4B9D6097A336FD46A /* Build configuration list for PBXNativeTarget "Pods-PepperoniAppTemplate" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				94C74819C32497DCEDF0E2322709447D /* Debug */,
-				FB2B7A94091A0148727E3A1FB35DD270 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

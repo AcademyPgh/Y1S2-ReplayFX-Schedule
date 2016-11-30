@@ -1,4 +1,4 @@
-package com.pepperoniapptemplate;
+package com.replayfxschedule;
 
 import android.app.Application;
 import android.util.Log;
