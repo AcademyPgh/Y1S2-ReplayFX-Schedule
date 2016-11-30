@@ -5,7 +5,7 @@ import * as snapshotUtil from '../utils/snapshot';
 import * as SessionStateActions from '../modules/session/SessionState';
 import store from '../redux/store';
 import DeveloperMenu from '../components/DeveloperMenu';
-import Hello from './helloworld/hello'
+import Hello from './helloworld/hello';
 
 const AppView = React.createClass({
   propTypes: {
