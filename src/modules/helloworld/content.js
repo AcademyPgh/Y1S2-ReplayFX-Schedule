@@ -10,7 +10,6 @@ import {
 import styles from './StyleSheet';
 
 import content_sections from './content_sections';
-import ListItem from './test_button_change';
 export default class Content extends Component {
   constructor(props) {
     super(props);
@@ -25,16 +24,15 @@ export default class Content extends Component {
       modalVisible: false,
       modalTitle: '',
       modalDescription: '',
-      temp: 'navy'
+      buttonColor: 'yellow'
     };
     this.renderScheduleItem = this.renderScheduleItem.bind(this);
     this.setModalVisible = this.setModalVisible.bind(this);
+    this.changeButton = this.changeButton.bind(this);
   }
-  mainButton() {
-    return <Text style={styles.header}>[*]</Text>;
-  }
+
   changeButton() {
-    return <Text style={styles.favorites}>[*]</Text>;
+    this.setState({buttonColor: 'navy'});
   }
 
   setModalVisible(visible, title, description) {
@@ -55,9 +53,9 @@ export default class Content extends Component {
         </TouchableHighlight>
 
         <TouchableHighlight onPress={() => {
-          this.temp = 'yellow';
+          this.changeButton();
         }}>
-        <Text style= {this.temp}>[*] </Text>
+        <Text style={{color: this.state.buttonColor}}>[*] </Text>
         </TouchableHighlight>
 
        </View>
