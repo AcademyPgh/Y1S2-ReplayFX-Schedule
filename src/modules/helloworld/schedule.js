@@ -3,12 +3,12 @@ const Schedule = () => (
     {
       'id': 1,
       'title': 'Pinburgh Player Check In',
-      'date': '07/27/2017',
+      'date': '7/27/2017',
       'starttime': '08:00',
       'endtime': '09:30',
       'description': 'Check in if you are playing Pinburgh',
       'type':
-       ['Competition', 'Favorties']
+       ['Competition', 'Favorites']
     },
     {
       'id': 2,

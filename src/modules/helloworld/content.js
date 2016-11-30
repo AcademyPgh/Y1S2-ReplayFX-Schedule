@@ -4,12 +4,18 @@ import {
   Text,
   View,
   ListView,
+  Button,
+  Alert,
   TouchableHighlight
 } from 'react-native';
 
-import Competition_Sections from './competition_sections';
+import content_sections from './content_sections';
 
-export default class Competition extends Component {
+const onButtonPress = () => {
+  Alert.alert('Button has been pressed!');
+};
+
+export default class Content extends Component {
   constructor(props) {
     super(props);
     const ds = new ListView.DataSource({
@@ -17,8 +23,8 @@ export default class Competition extends Component {
       sectionHeaderHasChanged: (s1, s2) => s1 !== s2
     });
     this.state = {
-      dataSource: ds.cloneWithRowsAndSections(Competition_Sections()),
-      someText: 'COMPETITIONS!!!!!'
+      dataSource: ds.cloneWithRowsAndSections(content_sections(this.props.typeIs)),
+      someText: 'App Made By Academy Pittsburgh'
     };
   }
 

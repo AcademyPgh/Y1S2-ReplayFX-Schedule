@@ -10,9 +10,7 @@ import {
 } from 'react-native';
 
 import schedule_sections from './schedule_sections';
-const onButtonPress = () => {
-  Alert.alert('Button has been pressed!');
-};
+
 export default class Days extends Component {
   constructor(props) {
     super(props);
