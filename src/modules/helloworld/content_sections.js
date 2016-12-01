@@ -12,10 +12,10 @@ const content_sections = (data) => {
     else {
       event.type.forEach((category) => {
         if (category === data) {
-          if (!dataMap[event.title]) {
-            dataMap[event.title] = [];
+          if (!dataMap[event.date]) {
+            dataMap[event.date] = [];
           }
-          dataMap[event.title].push(event);
+          dataMap[event.date].push(event);
         }
       });
     }

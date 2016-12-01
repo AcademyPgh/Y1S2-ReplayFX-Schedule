@@ -124,7 +124,7 @@ const Schedule = () => (
       'id': 13,
       'title': 'Arcade Open',
       'date': '7/28/2017',
-      'starttime': '9:00',
+      'starttime': '09:00',
       'endtime': '24:00',
       'description': 'It is Open!',
       'type':
@@ -134,7 +134,7 @@ const Schedule = () => (
       'id': 14,
       'title': 'Console Lounge Open',
       'date': '7/28/2017',
-      'starttime': '9:00',
+      'starttime': '09:00',
       'endtime': '24:00',
       'description': 'Play some games!',
       'type':
@@ -144,7 +144,7 @@ const Schedule = () => (
       'id': 15,
       'title': 'Pinburgh Player Checkin',
       'date': '7/28/2017',
-      'starttime': '9:30',
+      'starttime': '09:30',
       'endtime': '10:00',
       'description': 'Check in for today!',
       'type':
@@ -274,7 +274,7 @@ const Schedule = () => (
       'id': 28,
       'title': 'Arcade Open',
       'date': '7/29/2017',
-      'starttime': '9:00',
+      'starttime': '09:00',
       'endtime': '24:00',
       'description': 'It is Open',
       'type':
