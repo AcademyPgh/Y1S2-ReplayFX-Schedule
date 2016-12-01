@@ -10,6 +10,7 @@ import {
 import styles from './StyleSheet';
 import ButtonTest from './test_button_change';
 import content_sections from './content_sections';
+import _ from 'lodash';
 export default class Content extends Component {
   constructor(props) {
     super(props);
@@ -18,22 +19,24 @@ export default class Content extends Component {
       rowHasChanged: (r1, r2) => r1 !== r2,
       sectionHeaderHasChanged: (s1, s2) => s1 !== s2
     });
+    const initialFaves = [7,8];
+
     this.state = {
-      dataSource: ds.cloneWithRowsAndSections(content_sections(this.props.typeIs)),
+      dataSource: ds.cloneWithRowsAndSections(content_sections(this.props.typeIs, initialFaves)),
       someText: 'App Made By Academy Pittsburgh',
       modalVisible: false,
       modalTitle: '',
       modalDescription: '',
-      buttonClicked: false
-
+      buttonClicked: false,
+      faves: initialFaves
     };
     this.renderScheduleItem = this.renderScheduleItem.bind(this);
     this.setModalVisible = this.setModalVisible.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.changeStyle = this.changeStyle.bind(this);
   }
-  changeStyle() {
-    var isSelected = this.state.buttonClicked;
+  changeStyle(isFavorite) {
+    var isSelected = isFavorite;
     var style = {
       color: 'navy'
     };
@@ -44,14 +47,24 @@ export default class Content extends Component {
     }
     return style;
   }
-  handleClick() {
-    this.setState = ({buttonClicked: !this.state.buttonClicked});
-    if (!this.state.buttonClicked) {
-      Alert.alert('Favorite added!');
-    }
-    else {
+  handleClick(favoriteId) {
+    let tempfaves = this.state.faves;// this.setState = ({buttonClicked: !this.state.buttonClicked})
+    if (_.indexOf(tempfaves, favoriteId) > -1)
+      {
+      _.pull(tempfaves, favoriteId);
       Alert.alert('Removed from Favorites');
     }
+
+    else {
+      tempfaves.push(favoriteId);
+      Alert.alert('Added to Favorites');
+    }
+    const ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2,
+      sectionHeaderHasChanged: (s1, s2) => s1 !== s2
+    });
+    this.setState({dataSource: ds.cloneWithRowsAndSections(content_sections(this.props.typeIs, tempfaves)),
+      faves: tempfaves});
   }
 
   setModalVisible(visible, title, description) {
@@ -65,6 +78,7 @@ export default class Content extends Component {
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.datetime}>@ {item.starttime} - {item.endtime}</Text>
         <Text style={styles.description}>{item.description}</Text>
+        <Text style={styles.description}>{item.isFavorite ? 'favorite' : ''}</Text>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
 
         <TouchableHighlight onPress={() => {
@@ -72,21 +86,17 @@ export default class Content extends Component {
         }}>
           <Text style= {{color: 'navy'}}>[+]</Text>
         </TouchableHighlight>
-
-        <ButtonTest/>
-
+        <TouchableHighlight onPress={() => {
+          this.handleClick(item.id);
+        }}>
+             <Text style={this.changeStyle(item.isFavorite)}>[*]</Text>
+           </TouchableHighlight>
        </View>
       </View>
     );
-
   }
   /*
-  <TouchableHighlight onPress={() => {
-    this.handleClick();
-  }}>
-       <Text style={this.changeStyle()}>[*]</Text>
-     </TouchableHighlight>
-
+  <ButtonTest/>
 */
   renderSectionHeader(sectionData, category) {
     return (<View>

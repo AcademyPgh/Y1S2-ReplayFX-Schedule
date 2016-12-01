@@ -15,13 +15,13 @@ export default class Scroll_Tab_View extends Component {
     this.state = {
       tabs:
       [{name: 'Experience', value: 'all'},
+      {name: 'My Schedule', value: 'Favorites'},
       {name: 'Featured', value: 'Featured'},
       {name: 'Play', value: 'Games'},
       {name: 'Compete', value: 'Competition'},
       {name: 'Watch', value: 'Movies'},
       {name: 'Listen', value: 'Music'},
-      {name: 'Learn', value: 'Seminar'},
-      {name: 'My Schedule', value: 'Favorites'}
+      {name: 'Learn', value: 'Seminar'}
       ]
     };
   }

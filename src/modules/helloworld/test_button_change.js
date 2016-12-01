@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
+import ex_schedule from './schedule';
 import {
   TouchableHighlight,
   Text,
-  Alert
+  Alert,
+  AsyncStorage
 } from 'react-native';
 import styles from './StyleSheet';
 export default class ButtonTest extends Component {
@@ -16,7 +18,7 @@ export default class ButtonTest extends Component {
   }
   handleClick() {
     this.setState({
-      isSelected: !this.state.isSelected
+      isSelected: !this.state.isSelectedß
     });
     if (!this.state.isSelected) {
       Alert.alert('Favorite added!');

@@ -1,7 +1,14 @@
 import ex_schedule from './schedule';
-const content_sections = (data) => {
+import _ from 'lodash';
+const content_sections = (data, favorites) => {
   let dataMap = {};
   ex_schedule().forEach((event) => {
+    if (_.indexOf(favorites, event.id) > -1)
+    {event.isFavorite = true;
+      event.type.push('Favorites');}
+    else
+    {event.isFavorite = false;}
+
     if (data === 'all') {
       if (!dataMap[event.date]) {
         dataMap[event.date] = [];
