@@ -1,32 +1,45 @@
 import React, {Component} from 'react';
 import {
-  Text
+  TouchableHighlight,
+  Text,
+  Alert
 } from 'react-native';
-export default class ListItem extends Component {
+import styles from './StyleSheet';
+export default class ButtonTest extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      isSelected: false
+      isSelected: false,
+      favorites: [
+      ]
     };
   }
   handleClick() {
     this.setState({
-      isSelected: true
+      isSelected: !this.state.isSelected
     });
+    if (!this.state.isSelected) {
+      Alert.alert('Favorite added!');
+    }
+    else {
+      Alert.alert('Removed from Favorites');
+    }
   }
   render() {
     var isSelected = this.state.isSelected;
     var style = {
-      'background-color': ''
+      color: 'navy'
     };
     if (isSelected) {
-      style = {
-        'background-color': '#ccc'
-      };
+      style = styles.favorites;
     }
     return (
-           <Text onClick={this.handleClick} style={style}>[*]</Text>
+      <TouchableHighlight onPress={() => {
+        this.handleClick();
+      }}>
+           <Text style={style}>[*]</Text>
+         </TouchableHighlight>
+
     );
   }
 }

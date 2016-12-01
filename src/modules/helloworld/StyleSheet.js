@@ -70,6 +70,13 @@ const styles = StyleSheet.create({
   favorites: {
     color: 'yellow',
     fontWeight: 'bold'
+  },
+  innerContainer: {
+    borderRadius: 10,
+    alignItems: 'center',
+    marginTop: 220,
+    backgroundColor: 'white'
+
   }
 });
 

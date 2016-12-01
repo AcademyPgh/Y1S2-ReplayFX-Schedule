@@ -8,7 +8,7 @@ import {
   Modal
 } from 'react-native';
 import styles from './StyleSheet';
-
+import ButtonTest from './test_button_change';
 import content_sections from './content_sections';
 export default class Content extends Component {
   constructor(props) {
@@ -24,21 +24,42 @@ export default class Content extends Component {
       modalVisible: false,
       modalTitle: '',
       modalDescription: '',
-      buttonColor: 'yellow'
+      buttonClicked: false
+
     };
     this.renderScheduleItem = this.renderScheduleItem.bind(this);
     this.setModalVisible = this.setModalVisible.bind(this);
-    this.changeButton = this.changeButton.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.changeStyle = this.changeStyle.bind(this);
   }
-
-  changeButton() {
-    this.setState({buttonColor: 'navy'});
+  changeStyle() {
+    var isSelected = this.state.buttonClicked;
+    var style = {
+      color: 'navy'
+    };
+    if (isSelected) {
+      style = {
+        color: 'yellow'
+      };
+    }
+    return style;
+  }
+  handleClick() {
+    this.setState = ({buttonClicked: !this.state.buttonClicked});
+    if (!this.state.buttonClicked) {
+      Alert.alert('Favorite added!');
+    }
+    else {
+      Alert.alert('Removed from Favorites');
+    }
   }
 
   setModalVisible(visible, title, description) {
     this.setState({modalVisible: visible, modalTitle: title, modalDescription: description});
   }
+
   renderScheduleItem(item) {
+
     return (
       <View>
         <Text style={styles.title}>{item.title}</Text>
@@ -49,21 +70,24 @@ export default class Content extends Component {
         <TouchableHighlight onPress={() => {
           this.setModalVisible(true, item.title, item.description);
         }}>
-          <Text>[+]</Text>
+          <Text style= {{color: 'navy'}}>[+]</Text>
         </TouchableHighlight>
 
-        <TouchableHighlight onPress={() => {
-          this.changeButton();
-        }}>
-        <Text style={{color: this.state.buttonColor}}>[*] </Text>
-        </TouchableHighlight>
+        <ButtonTest/>
 
        </View>
       </View>
     );
 
   }
+  /*
+  <TouchableHighlight onPress={() => {
+    this.handleClick();
+  }}>
+       <Text style={this.changeStyle()}>[*]</Text>
+     </TouchableHighlight>
 
+*/
   renderSectionHeader(sectionData, category) {
     return (<View>
       <Text style={styles.header}>{category}</Text>
@@ -79,17 +103,17 @@ export default class Content extends Component {
         <Text>{this.state.someText}</Text>
       </TouchableHighlight>
         <Modal
-          animationType={'fade'}
-          transparent={false}
+          animationType={'slide'}
+          transparent={true}
           visible={this.state.modalVisible}
           onRequestClose={() => {Alert.alert('Modal has been closed!');}}>
-          <View>
+          <View style= {styles.innerContainer}>
             <Text>{this.state.modalTitle}</Text>
             <Text>{this.state.modalDescription}</Text>
             <TouchableHighlight onPress={() => {
               this.setModalVisible(!this.state.modalVisible);
             }}>
-              <Text>hide</Text>
+              <Text style= {styles.title}>Close</Text>
             </TouchableHighlight>
           </View>
         </Modal>
