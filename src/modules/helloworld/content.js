@@ -81,7 +81,7 @@ export default class Content extends Component {
     return (
       <View>
         <Text style={styles.title}>{item.title}</Text>
-        <Text style={styles.datetime}>@ {item.starttime} - {item.endtime}</Text>
+        <Text style={styles.datetime}>{item.starttime} - {item.endtime}</Text>
         <Text style={styles.description}>{item.description}</Text>
         <Text style={styles.description}>{item.isFavorite ? 'favorite' : ''}</Text>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
@@ -110,8 +110,20 @@ export default class Content extends Component {
   <ButtonTest/>
 */
   renderSectionHeader(sectionData, category) {
+    let d = new Date(category);
+    console.log(d);
+    var weekday = new Array(7);
+    weekday[0] = 'Sunday';
+    weekday[1] = 'Monday';
+    weekday[2] = 'Tuesday';
+    weekday[3] = 'Wednesday';
+    weekday[4] = 'Thursday';
+    weekday[5] = 'Friday';
+    weekday[6] = 'Saturday';
+
+    let n = weekday[d.getDay()];
     return (<View>
-      <Text style={styles.header}>{category}</Text>
+      <Text style={styles.header}>{n}</Text>
     </View>);
   }
 
