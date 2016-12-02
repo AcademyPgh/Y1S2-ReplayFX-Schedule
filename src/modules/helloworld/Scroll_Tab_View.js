@@ -3,7 +3,7 @@ import {
   View
 } from 'react-native';
 import styles from './StyleSheet';
-import ex_schedule from './schedule';
+//import ex_schedule from './schedule';
 import _ from 'lodash';
 
 import ScrollableTabView, {ScrollableTabBar} from 'react-native-scrollable-tab-view';
@@ -47,7 +47,7 @@ export default class Scroll_Tab_View extends Component {
     return (
         <ScrollableTabView renderTabBar = {() => <ScrollableTabBar />} >
           {this.state.tabs.map((item, index) =>
-          {return (<View style={styles.slide2} tabLabel= {item.name} key = {index}>
+          {return (<View style={styles.slide} tabLabel= {item.name} key = {index}>
             <Content typeIs={item.value} favorites={this.state.favorites} removeFavorite={this.removeFavorite} addFavorite={this.addFavorite}/>
           </View>);})}
         </ScrollableTabView>

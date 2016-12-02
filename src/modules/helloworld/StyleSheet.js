@@ -4,7 +4,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    //backgroundColor: '#F5FCFF'
+    backgroundColor: 'lightsteelblue'
   },
   welcome: {
     fontSize: 20,
@@ -22,11 +23,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#E5ECEE'
   },
   description: {
-    fontSize: 15
+    fontSize: 15,
+    color: 'snow'
   },
   datetime: {
     textAlign: 'center',
-    fontSize: 15
+    fontSize: 15,
+    color: 'snow'
   },
   header: {
     color: '#FFFFFF',
@@ -44,16 +47,15 @@ const styles = StyleSheet.create({
   },
   wrapper: {
   },
-  slide1: {
-    flex: 1,
+  home: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#9DD6EB'
+    backgroundColor: 'lightsteelblue'
   },
-  slide2: {
+  slide: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    //alignItems: 'center',
     backgroundColor: '#97CAE5'
   },
   slide3: {

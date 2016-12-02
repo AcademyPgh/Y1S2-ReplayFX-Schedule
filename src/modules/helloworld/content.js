@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import styles from './StyleSheet';
 import content_sections from './content_sections';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 export default class Content extends Component {
   constructor(props) {
     super(props);
@@ -23,13 +24,11 @@ export default class Content extends Component {
       someText: 'App Made By Academy Pittsburgh',
       modalVisible: false,
       modalTitle: '',
-      modalDescription: '',
-      buttonClicked: false
+      modalDescription: ''
     };
     this.renderScheduleItem = this.renderScheduleItem.bind(this);
     this.setModalVisible = this.setModalVisible.bind(this);
-    // this.handleClick = this.handleClick.bind(this);
-    this.changeStyle = this.changeStyle.bind(this);
+    //this.changeStyle = this.changeStyle.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     const ds = new ListView.DataSource({
@@ -40,37 +39,6 @@ export default class Content extends Component {
       dataSource: ds.cloneWithRowsAndSections(content_sections(nextProps.typeIs, nextProps.favorites))
     });
   }
-  changeStyle(isFavorite) {
-    //var isSelected = isFavorite;
-    var style = {
-      color: 'navy'
-    };
-    if (isFavorite) {
-      style = {
-        color: 'yellow'
-      };
-    }
-    return style;
-  }
-  // handleClick(favoriteId) {
-  //   let tempfaves = this.state.faves;// this.setState = ({buttonClicked: !this.state.buttonClicked})
-  //   if (_.indexOf(tempfaves, favoriteId) > -1)
-  //     {
-  //     _.pull(tempfaves, favoriteId);
-  //     Alert.alert('Removed from Favorites');
-  //   }
-  //
-  //   else {
-  //     tempfaves.push(favoriteId);
-  //     Alert.alert('Added to Favorites');
-  //   }
-  //   const ds = new ListView.DataSource({
-  //     rowHasChanged: (r1, r2) => r1 !== r2,
-  //     sectionHeaderHasChanged: (s1, s2) => s1 !== s2
-  //   });
-  //   this.setState({dataSource: ds.cloneWithRowsAndSections(content_sections(this.props.typeIs, tempfaves)),
-  //     faves: tempfaves});
-  // }
 
   setModalVisible(visible, title, description) {
     this.setState({modalVisible: visible, modalTitle: title, modalDescription: description});
@@ -83,13 +51,16 @@ export default class Content extends Component {
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.datetime}>@ {item.starttime} - {item.endtime}</Text>
         <Text style={styles.description}>{item.description}</Text>
-        <Text style={styles.description}>{item.isFavorite ? 'favorite' : ''}</Text>
+        <Text style={styles.description}>
+          {item.isFavorite ? <Ionicons name= 'ios-star' size={17}
+            color= 'gold' /> : ''}</Text>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
 
         <TouchableHighlight onPress={() => {
           this.setModalVisible(true, item.title, item.description);
         }}>
-          <Text style= {{color: 'navy'}}>[+]</Text>
+        <Ionicons name= 'ios-information' size={20}
+          color= '#292650' />
         </TouchableHighlight>
         <TouchableHighlight onPress={() => {
           if (item.isFavorite)
@@ -99,16 +70,17 @@ export default class Content extends Component {
           else {
             this.props.addFavorite(item.id);
           }
+
         }}>
-             <Text style={this.changeStyle(item.isFavorite)}>[*]</Text>
+             <Ionicons name= 'ios-game-controller-b' size={25}
+               color= {item.isFavorite ? 'gold' : '#292650'} />
+
            </TouchableHighlight>
        </View>
       </View>
     );
   }
-  /*
-  <ButtonTest/>
-*/
+
   renderSectionHeader(sectionData, category) {
     return (<View>
       <Text style={styles.header}>{category}</Text>
@@ -121,7 +93,7 @@ export default class Content extends Component {
         <TouchableHighlight onPress={() => {
           this.setModalVisible(!this.state.modalVisible);
         }}>
-        <Text>{this.state.someText}</Text>
+        <Text style= {{color: 'white'}}>{this.state.someText}</Text>
       </TouchableHighlight>
         <Modal
           animationType={'slide'}
