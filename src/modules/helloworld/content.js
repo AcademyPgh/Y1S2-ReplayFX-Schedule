@@ -51,10 +51,10 @@ export default class Content extends Component {
 
     return (
       <View>
-        <Text animation='flipInY' delay={200} style={styles.title}>{item.title}</Text>
-        <Text animation='flipInY' delay={200} style={styles.datetime}>@ {item.starttime} - {item.endtime}</Text>
-        <Text animation='flipInY' delay={200} style={styles.description}>{item.description}</Text>
-        <Text animation='flipInY' delay={200} animation= {item.isFavorite ? 'flash' : ''} style={styles.description}>
+        <Text animation='flipInY' delay={400} style={styles.title}>{item.title}</Text>
+        <Text animation='flipInY' delay={400} style={styles.datetime}>@ {item.starttime} - {item.endtime}</Text>
+        <Text animation='flipInY' delay={400} style={styles.description}>{item.description}</Text>
+        <Text animation='flipInY' delay={400} animation= {item.isFavorite ? 'flash' : ''} style={styles.description}>
           {item.isFavorite ? <Ionicons name= 'ios-star' size={23}
             color= 'gold' /> : ''} {this.props.favorites.length} </Text>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
@@ -75,7 +75,7 @@ export default class Content extends Component {
           }
 
         }}>
-          <View animation= {item.isFavorite ? 'bounce' : 'shake'} delay={250}>
+          <View animation= {item.isFavorite ? 'bounce' : 'shake'} delay={400}>
              <Ionicons name= 'ios-game-controller-b' size={36}
                color= {item.isFavorite ? 'gold' : '#260099'} />
              </View>
@@ -86,7 +86,7 @@ export default class Content extends Component {
   }
 
   renderSectionHeader(sectionData, category) {
-    return (<View>
+    return (<View animation= 'bounceIn' delay= {400}>
       <Text style={styles.header}>{category}</Text>
     </View>);
   }
