@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {
-  Text,
-  View,
+  //Text,
+  //View,
   ListView,
   Alert,
   TouchableHighlight,
@@ -10,6 +10,9 @@ import {
 import styles from './StyleSheet';
 import content_sections from './content_sections';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {createAnimatableComponent, View, Text} from 'react-native-animatable';
+//const AnimatableListView = createAnimatableComponent(ListView);
+
 export default class Content extends Component {
   constructor(props) {
     super(props);
@@ -48,19 +51,19 @@ export default class Content extends Component {
 
     return (
       <View>
-        <Text style={styles.title}>{item.title}</Text>
-        <Text style={styles.datetime}>@ {item.starttime} - {item.endtime}</Text>
-        <Text style={styles.description}>{item.description}</Text>
-        <Text style={styles.description}>
-          {item.isFavorite ? <Ionicons name= 'ios-star' size={17}
-            color= 'gold' /> : ''}</Text>
+        <Text animation='flipInY' delay={200} style={styles.title}>{item.title}</Text>
+        <Text animation='flipInY' delay={200} style={styles.datetime}>@ {item.starttime} - {item.endtime}</Text>
+        <Text animation='flipInY' delay={200} style={styles.description}>{item.description}</Text>
+        <Text animation='flipInY' delay={200} animation= {item.isFavorite ? 'flash' : ''} style={styles.description}>
+          {item.isFavorite ? <Ionicons name= 'ios-star' size={23}
+            color= 'gold' /> : ''} {this.props.favorites.length} </Text>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
 
         <TouchableHighlight onPress={() => {
           this.setModalVisible(true, item.title, item.description);
         }}>
-        <Ionicons name= 'ios-information' size={20}
-          color= '#292650' />
+        <Ionicons name= 'ios-information' size={24}
+          color= '#260099' />
         </TouchableHighlight>
         <TouchableHighlight onPress={() => {
           if (item.isFavorite)
@@ -72,9 +75,10 @@ export default class Content extends Component {
           }
 
         }}>
-             <Ionicons name= 'ios-game-controller-b' size={25}
-               color= {item.isFavorite ? 'gold' : '#292650'} />
-
+          <View animation= {item.isFavorite ? 'bounce' : 'shake'} delay={250}>
+             <Ionicons name= 'ios-game-controller-b' size={36}
+               color= {item.isFavorite ? 'gold' : '#260099'} />
+             </View>
            </TouchableHighlight>
        </View>
       </View>
@@ -93,7 +97,7 @@ export default class Content extends Component {
         <TouchableHighlight onPress={() => {
           this.setModalVisible(!this.state.modalVisible);
         }}>
-        <Text style= {{color: 'white'}}>{this.state.someText}</Text>
+        <Text style= {[{color: 'white'},{fontFamily: 'Chalkduster'}]}>{this.state.someText}</Text>
       </TouchableHighlight>
         <Modal
           animationType={'slide'}

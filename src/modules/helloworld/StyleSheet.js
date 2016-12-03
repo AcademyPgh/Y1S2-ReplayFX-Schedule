@@ -5,7 +5,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     //backgroundColor: '#F5FCFF'
-    backgroundColor: 'lightsteelblue'
+    // backgroundColor: 'lightsteelblue'
+    backgroundColor: '#a5bcd9'
+
   },
   welcome: {
     fontSize: 20,
@@ -18,27 +20,36 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   title: {
-    color: '#333333',
-    fontSize: 20,
+    //color: '#333333',
+    color: '#52527a',
+    fontSize: 15,
+    fontFamily: 'GillSans-UltraBold',
     backgroundColor: '#E5ECEE'
   },
   description: {
     fontSize: 15,
+    fontFamily: 'GillSans-Bold',
     color: 'snow'
+    //color: '#52527a'
   },
   datetime: {
     textAlign: 'center',
     fontSize: 15,
+    fontFamily: 'GillSans-Bold',
     color: 'snow'
+    //color: '#52527a'
   },
   header: {
     color: '#FFFFFF',
-    backgroundColor: '#292650',
+    // backgroundColor: '#292650',
+    backgroundColor: '#260099',
     paddingTop: 0,
     paddingRight: 10,
     paddingBottom: 0,
     paddingLeft: 10,
-    fontSize: 20
+    fontSize: 20,
+    fontFamily: 'GillSans-Bold'
+
   },
   tabheader: {
     flex: 2,
@@ -50,7 +61,8 @@ const styles = StyleSheet.create({
   home: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'lightsteelblue'
+    //backgroundColor: 'lightsteelblue'
+    backgroundColor: '#a5bcd9'
   },
   slide: {
     flex: 1,
