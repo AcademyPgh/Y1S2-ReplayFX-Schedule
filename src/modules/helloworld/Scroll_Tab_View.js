@@ -45,9 +45,9 @@ export default class Scroll_Tab_View extends Component {
 
   render() {
     return (
-        <ScrollableTabView renderTabBar = {() => <ScrollableTabBar />} >
+        <ScrollableTabView renderTabBar = {() => <ScrollableTabBar favoritesCount= {this.state.favorites.length}/>} >
           {this.state.tabs.map((item, index) =>
-          {return (<View style={styles.slide} tabLabel= {item.name} key = {index}>
+          {return (<View style={styles.slide} tabLabel= {item.name} key = {index} >
             <Content typeIs={item.value} favorites={this.state.favorites} removeFavorite={this.removeFavorite} addFavorite={this.addFavorite}/>
           </View>);})}
         </ScrollableTabView>

@@ -56,7 +56,8 @@ export default class Content extends Component {
         <Text animation='flipInY' delay={400} style={styles.description}>{item.description}</Text>
         <Text animation='flipInY' delay={400} animation= {item.isFavorite ? 'flash' : ''} style={styles.description}>
           {item.isFavorite ? <Ionicons name= 'ios-star' size={23}
-            color= 'gold' /> : ''} {this.props.favorites.length} </Text>
+            color= 'gold' /> : ''}
+            {item.isFavorite ? this.props.favorites.length : ''}</Text>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
 
         <TouchableHighlight onPress={() => {
