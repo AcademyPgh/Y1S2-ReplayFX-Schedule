@@ -1,4 +1,5 @@
 import {StyleSheet, Dimensions} from 'react-native';
+const fontName = 'Voces';
 const styles = StyleSheet.create({
   container: {
     //flex: 1,
@@ -8,7 +9,6 @@ const styles = StyleSheet.create({
     // backgroundColor: 'lightsteelblue'
   //  backgroundColor: '#a5bcd9'
     backgroundColor: 'white'
-
   },
   welcome: {
     fontSize: 20,
@@ -21,39 +21,44 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   title: {
-    color: '#1A1B2E',
+    // color: '#1A1B2E',
     //color: '#52527a',
-    fontSize: 15,
-    fontFamily: 'GillSans-UltraBold'
+    color: 'black',
+    fontSize: 23,
+    fontFamily: fontName,
+    //fontWeight: 'bold',
+    paddingBottom: 2
     //textAlign: 'center'
   //  backgroundColor: '#E5ECEE'
   },
   description: {
     fontSize: 15,
-    fontFamily: 'GillSans-Bold',
+    fontFamily: fontName,
     //color: 'snow'
     //color: '#52527a'
-    color: 'black'
+    color: 'black',
+    paddingBottom: 2
   },
   datetime: {
     textAlign: 'left',
-    fontSize: 15,
-    fontFamily: 'GillSans-Bold',
+    fontSize: 20,
+    fontFamily: fontName,
   //  color: 'snow'
     //color: '#52527a'
-    color: 'black'
+    color: 'black',
+    paddingBottom: 2
   },
   header: {
-    color: '#FFFFFF',
+    color: '#DBDDFF',
     // backgroundColor: '#292650',
-    backgroundColor: '#260099',
+    backgroundColor: '#3B3D68',
     //backgroundColor: '#1A1B2E',
-    paddingTop: 0,
+    paddingTop: 5,
     paddingRight: 10,
-    paddingBottom: 0,
+    paddingBottom: 5,
     paddingLeft: 10,
-    fontSize: 20,
-    fontFamily: 'GillSans-Bold',
+    fontSize: 25,
+    fontFamily: fontName,
     textAlign: 'center'
 
   },
@@ -76,7 +81,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     //alignItems: 'center',
   //  backgroundColor: '#97CAE5'
-    backgroundColor: 'white'
+    backgroundColor: '#9598C0'
   },
   slide3: {
     flex: 1,
@@ -87,13 +92,14 @@ const styles = StyleSheet.create({
   text: {
     color: '#fff',
     fontSize: 30,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontFamily: fontName
   },
   favorites: {
-    color: 'gold'
+    color: '#3B3D68'
   },
   unFavorites: {
-    color: '#260099'
+    color: 'grey'
   },
   innerContainer: {
     borderRadius: 10,
@@ -105,7 +111,11 @@ const styles = StyleSheet.create({
   info: {
     borderColor: '#ccc',
     borderBottomWidth: 2,
-    width: Dimensions.get('window').width
+    width: Dimensions.get('window').width,
+    paddingTop: 0,
+    paddingRight: 10,
+    paddingBottom: 0,
+    paddingLeft: 10
 
   }
 });

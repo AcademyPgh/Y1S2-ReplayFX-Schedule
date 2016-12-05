@@ -30,6 +30,8 @@
 		B2E7D0E81DF1FE3F00D29232 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E7D0D51DF1DB1700D29232 /* libRNVectorIcons.a */; };
 		B2E7D0EA1DF1FE8100D29232 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2E7D0E91DF1FE8100D29232 /* Ionicons.ttf */; };
 		B2E7D0EC1DF20E4F00D29232 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2E7D0EB1DF20E4E00D29232 /* FontAwesome.ttf */; };
+		FAD0CCF21DF5FD8800C965F8 /* voces-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAD0CCF11DF5FD8800C965F8 /* voces-regular.ttf */; };
+		FAD0CD051DF5FDC900C965F8 /* voces-regular.ttf in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD0CCF11DF5FD8800C965F8 /* voces-regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,6 +208,7 @@
 		B68E404F14C58391672C0F67 /* Pods-replayfxschedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-replayfxschedule.release.xcconfig"; path = "Pods/Target Support Files/Pods-replayfxschedule/Pods-replayfxschedule.release.xcconfig"; sourceTree = "<group>"; };
 		C9B047E139CE31010C629D9E /* libPods-replayfxschedule.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-replayfxschedule.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFC58B77924C314C152B52EB /* Pods-replayfxschedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-replayfxschedule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-replayfxschedule/Pods-replayfxschedule.debug.xcconfig"; sourceTree = "<group>"; };
+		FAD0CCF11DF5FD8800C965F8 /* voces-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "voces-regular.ttf"; path = "../android/app/src/main/assets/voces-regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +224,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD0CD051DF5FDC900C965F8 /* voces-regular.ttf in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
@@ -399,6 +403,7 @@
 			children = (
 				B2E7D0EB1DF20E4E00D29232 /* FontAwesome.ttf */,
 				B2E7D0E91DF1FE8100D29232 /* Ionicons.ttf */,
+				FAD0CCF11DF5FD8800C965F8 /* voces-regular.ttf */,
 				B2E7D0E61DF1FDBD00D29232 /* ionicons.ttf */,
 				B2E7D0E41DF1FD6400D29232 /* FontAwesome.otf */,
 				13B07FAE1A68108700A75B9A /* replayfxschedule */,
@@ -713,6 +718,7 @@
 			files = (
 				B2E7D0EC1DF20E4F00D29232 /* FontAwesome.ttf in Resources */,
 				B2E7D0EA1DF1FE8100D29232 /* Ionicons.ttf in Resources */,
+				FAD0CCF21DF5FD8800C965F8 /* voces-regular.ttf in Resources */,
 				B2E7D0E71DF1FDBD00D29232 /* ionicons.ttf in Resources */,
 				B2E7D0E51DF1FD6400D29232 /* FontAwesome.otf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,

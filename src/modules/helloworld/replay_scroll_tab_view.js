@@ -36,10 +36,10 @@ const NewTabBar = React.createClass({
   getDefaultProps() {
     return {
       scrollOffset: 52,
-      activeTextColor: 'navy',
-      inactiveTextColor: '#808080',
+      activeTextColor: '#3B3D68',
+      inactiveTextColor: '#333',
     //  inactiveTextColor: '#737373',
-      backgroundColor: 'mintcream',
+      backgroundColor: 'white',
       style: {},
       tabStyle: {},
       tabsContainerStyle: {},
@@ -127,7 +127,7 @@ const NewTabBar = React.createClass({
   starCount(name) {
     if (this.props.favoritesCount >= 0) {
       return (
-name === 'My Schedule' ? <Ionicons name= 'ios-game-controller-b' size={15} color= '#260099'>
+name === 'My Schedule' ? <Ionicons name= 'ios-game-controller-b' size={15} color= '#3B3D68'>
       <Text> {this.props.favoritesCount} </Text>
     </Ionicons> : ''
       );
@@ -139,7 +139,7 @@ name === 'My Schedule' ? <Ionicons name= 'ios-game-controller-b' size={15} color
     const textColor = isTabActive ? activeTextColor : inactiveTextColor;
     const fontWeight = isTabActive ? 'bold' : 'normal';
 
-    return <Button
+    return (<Button
       key={`${name}_${page}`}
       accessible={true}
       accessibilityLabel={name}
@@ -149,13 +149,14 @@ name === 'My Schedule' ? <Ionicons name= 'ios-game-controller-b' size={15} color
     >
       <View style={[styles.tab, this.props.tabStyle]}>
 
-        <Text style={[{color: textColor, fontWeight},{fontFamily: 'GillSans-BoldItalic'}]}>
+        <Text style={[{color: textColor, fontWeight},{fontFamily: 'Voces'}]}>
           {name} <Text animation= 'flash' delay={400} iterationCount= {3}>
               {this.starCount(name)}
                </Text>
         </Text>
       </View>
-    </Button>;
+    </Button>
+    );
   },
 //Moved textStyle out of <Text/> in replace of fontFamily: ...
   measureTab(page, event) {
@@ -167,9 +168,10 @@ name === 'My Schedule' ? <Ionicons name= 'ios-game-controller-b' size={15} color
   render() {
     const tabUnderlineStyle = {
       position: 'absolute',
-      height: 2,
-      backgroundColor: 'navy',
-      bottom: 0
+      height: 49,
+      backgroundColor: '#DBDDFF',
+      bottom: 0,
+      zIndex: -1
     };
 
     const dynamicTabUnderline = {
@@ -241,12 +243,13 @@ const styles = StyleSheet.create({
   },
   container: {
     height: 50,
-    borderWidth: 1,
+    //borderWidth: 1,
     borderTopWidth: 2,
     borderLeftWidth: 0,
     borderRightWidth: 0,
     borderColor: '#ccc',
-    borderBottomWidth: 2
+    // marginBottom: 5
+    //borderBottomWidth: 4
 
   },
   tabs: {

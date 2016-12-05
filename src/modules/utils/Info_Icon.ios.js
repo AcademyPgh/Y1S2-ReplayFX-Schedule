@@ -3,7 +3,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Info_Icon = () => {
   return (<Ionicons name= 'ios-information' size={24}
-    color= '#260099' />
+    color= '#3B3D68' />
   );
 };
 

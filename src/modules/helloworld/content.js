@@ -25,7 +25,7 @@ export default class Content extends Component {
 
     this.state = {
       dataSource: ds.cloneWithRowsAndSections(content_sections(this.props.typeIs, this.props.favorites)),
-      someText: 'App Made By Academy Pittsburgh',
+      // someText: 'App Made By Academy Pittsburgh',
       modalVisible: false,
       modalTitle: '',
       modalDescription: ''
@@ -55,10 +55,6 @@ export default class Content extends Component {
         <Text animation='flipInY' delay={400} style={styles.title}>{item.title}</Text>
         <Text animation='flipInY' delay={400} style={styles.datetime}>@ {item.starttime} - {item.endtime}</Text>
         <Text animation='flipInY' delay={400} style={styles.description}>{item.description}</Text>
-        {/* <Text animation='flipInY' delay={400} animation= {item.isFavorite ? 'flash' : ''} style={styles.description}>
-          {item.isFavorite ? <Ionicons name= 'ios-star' size={23}
-            color= 'gold' /> : ''}
-            {item.isFavorite ? this.props.favorites.length : ''}</Text> */}
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
 
         <TouchableHighlight onPress={() => {
@@ -67,8 +63,6 @@ export default class Content extends Component {
         <View>
         <Info_Icon/>
         </View>
-        {/* <Ionicons name= 'ios-information-circle' size={24}
-          color= '#260099' /> */}
         </TouchableHighlight>
         <TouchableHighlight onPress={() => {
           if (item.isFavorite)
@@ -82,7 +76,7 @@ export default class Content extends Component {
         }}>
           <View animation= {item.isFavorite ? 'bounce' : 'shake'} delay={400}>
              <Ionicons name= 'ios-game-controller-b' size={36}
-               color= {item.isFavorite ? '#260099' : 'grey'} />
+               color= {item.isFavorite ? '#3B3D68' : 'grey'} />
              </View>
            </TouchableHighlight>
        </View>
@@ -102,16 +96,11 @@ export default class Content extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableHighlight onPress={() => {
-          this.setModalVisible(!this.state.modalVisible);
-        }}>
-        <Text style= {[{color: 'white'},{fontFamily: 'Chalkduster'}]}>{this.state.someText}</Text>
-      </TouchableHighlight>
         <Modal
           animationType={'slide'}
           transparent={true}
           visible={this.state.modalVisible}
-          onRequestClose={() => {Alert.alert('Modal has been closed!');}}>
+          onRequestClose ={() => {Alert.alert('Modal has been closed!');}}>
           <View style= {styles.innerContainer}>
             <Text>{this.state.modalTitle}</Text>
             <Text>{this.state.modalDescription}</Text>
@@ -122,6 +111,7 @@ export default class Content extends Component {
             </TouchableHighlight>
           </View>
         </Modal>
+
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this.renderScheduleItem}
