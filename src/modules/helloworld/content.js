@@ -10,6 +10,7 @@ import {
 import styles from './StyleSheet';
 import content_sections from './content_sections';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+const Info_Icon = require('../utils/Info_Icon');
 import {createAnimatableComponent, View, Text} from 'react-native-animatable';
 //const AnimatableListView = createAnimatableComponent(ListView);
 
@@ -63,8 +64,11 @@ export default class Content extends Component {
         <TouchableHighlight onPress={() => {
           this.setModalVisible(true, item.title, item.description);
         }}>
-        <Ionicons name= 'ios-information-circle' size={24}
-          color= '#260099' />
+        <View>
+        <Info_Icon/>
+        </View>
+        {/* <Ionicons name= 'ios-information-circle' size={24}
+          color= '#260099' /> */}
         </TouchableHighlight>
         <TouchableHighlight onPress={() => {
           if (item.isFavorite)

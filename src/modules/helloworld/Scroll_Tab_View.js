@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {
-  View,
-  Text
+  View
+  //Text
 } from 'react-native';
 import styles from './StyleSheet';
 import _ from 'lodash';
 import ScrollableTabView, {ScrollableTabBar} from 'react-native-scrollable-tab-view';
-import {newTabBar} from './cray_scroll_tab_view';
+import NewTabBar from './cray_scroll_tab_view';
 import Content from './content';
 // Using tabBarPosition='overlayTop' or 'overlayBottom' lets the content show through a
 // semitransparent tab bar. Note that if you build a custom tab bar component, its outer container
@@ -48,7 +48,7 @@ export default class Scroll_Tab_View extends Component {
 
   render() {
     return (
-        <ScrollableTabView renderTabBar = {() => <ScrollableTabBar favoritesCount= {this.state.favorites.length}/>} >
+        <ScrollableTabView renderTabBar = {() => <NewTabBar favoritesCount= {this.state.favorites.length}/>} >
           {this.state.tabs.map((item, index) =>
           {return (<View style={styles.slide} tabLabel= {item.name} key = {index} >
             <Content typeIs={item.value} favorites={this.state.favorites} removeFavorite={this.removeFavorite} addFavorite={this.addFavorite}/>

@@ -13,10 +13,9 @@ const Button = require('../utils/Button');
 import {View, Text} from 'react-native-animatable';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-
 const WINDOW_WIDTH = Dimensions.get('window').width;
 
-const newTabBar = React.createClass({
+const NewTabBar = React.createClass({
   propTypes: {
     goToPage: React.PropTypes.func,
     activeTab: React.PropTypes.number,
@@ -30,7 +29,7 @@ const newTabBar = React.createClass({
     tabsContainerStyle: View.propTypes.style,
     textStyle: Text.propTypes.style,
     renderTab: React.PropTypes.func,
-    underlineStyle: View.propTypes.style,
+    underlineStyle: View.propTypes.style
     //favoritesCount: View.propTypes.number
   },
 
@@ -44,7 +43,7 @@ const newTabBar = React.createClass({
       style: {},
       tabStyle: {},
       tabsContainerStyle: {},
-      underlineStyle: {},
+      underlineStyle: {}
     };
   },
 
@@ -53,7 +52,7 @@ const newTabBar = React.createClass({
     return {
       _leftTabUnderline: new Animated.Value(0),
       _widthTabUnderline: new Animated.Value(0),
-      _containerWidth: null,
+      _containerWidth: null
     };
   },
 
@@ -98,11 +97,11 @@ const newTabBar = React.createClass({
     newScrollX = newScrollX >= 0 ? newScrollX : 0;
 
     if (Platform.OS === 'android') {
-      this._scrollView.scrollTo({x: newScrollX, y: 0, animated: false, });
+      this._scrollView.scrollTo({x: newScrollX, y: 0, animated: false});
     } else {
       const rightBoundScroll = this._tabContainerMeasurements.width - (this._containerMeasurements.width);
       newScrollX = newScrollX > rightBoundScroll ? rightBoundScroll : newScrollX;
-      this._scrollView.scrollTo({x: newScrollX, y: 0, animated: false, });
+      this._scrollView.scrollTo({x: newScrollX, y: 0, animated: false});
     }
 
   },
@@ -125,19 +124,18 @@ const newTabBar = React.createClass({
       this.state._widthTabUnderline.setValue(lineRight - lineLeft);
     }
   },
-  starCount(name){
-    if(this.props.favoritesCount >=0){
+  starCount(name) {
+    if (this.props.favoritesCount >= 0) {
       return (
-name === 'My Schedule'? <Ionicons name= 'ios-game-controller-b' size={15} color= '#260099'>
+name === 'My Schedule' ? <Ionicons name= 'ios-game-controller-b' size={15} color= '#260099'>
       <Text> {this.props.favoritesCount} </Text>
     </Ionicons> : ''
-  )
-}
+      );
+    }
   },
 
-
   renderTab(name, page, isTabActive, onPressHandler, onLayoutHandler) {
-    const { activeTextColor, inactiveTextColor, textStyle, } = this.props;
+    const {activeTextColor, inactiveTextColor, textStyle} = this.props;
     const textColor = isTabActive ? activeTextColor : inactiveTextColor;
     const fontWeight = isTabActive ? 'bold' : 'normal';
 
@@ -149,9 +147,9 @@ name === 'My Schedule'? <Ionicons name= 'ios-game-controller-b' size={15} color=
       onPress={() => onPressHandler(page)}
       onLayout={onLayoutHandler}
     >
-      <View style={[styles.tab, this.props.tabStyle, ]}>
+      <View style={[styles.tab, this.props.tabStyle]}>
 
-        <Text style={[{color: textColor, fontWeight, }, {fontFamily: 'GillSans-BoldItalic'}, ]}>
+        <Text style={[{color: textColor, fontWeight},{fontFamily: 'GillSans-BoldItalic'}]}>
           {name} <Text animation= 'flash' delay={400} iterationCount= {3}>
               {this.starCount(name)}
                </Text>
@@ -176,11 +174,11 @@ name === 'My Schedule'? <Ionicons name= 'ios-game-controller-b' size={15} color=
 
     const dynamicTabUnderline = {
       left: this.state._leftTabUnderline,
-      width: this.state._widthTabUnderline,
+      width: this.state._widthTabUnderline
     };
 
     return <View
-      style={[styles.container, {backgroundColor: this.props.backgroundColor, }, this.props.style, ]}
+      style={[styles.container, {backgroundColor: this.props.backgroundColor}, this.props.style]}
       onLayout={this.onContainerLayout}
     >
       <ScrollView
@@ -193,7 +191,7 @@ name === 'My Schedule'? <Ionicons name= 'ios-game-controller-b' size={15} color=
         scrollsToTop={false}
       >
         <View
-          style={[styles.tabs, {width: this.state._containerWidth, }, this.props.tabsContainerStyle, ]}
+          style={[styles.tabs, {width: this.state._containerWidth}, this.props.tabsContainerStyle]}
           ref={'tabContainer'}
           onLayout={this.onTabContainerLayout}
         >
@@ -202,7 +200,7 @@ name === 'My Schedule'? <Ionicons name= 'ios-game-controller-b' size={15} color=
             const renderTab = this.props.renderTab || this.renderTab;
             return renderTab(name, page, isTabActive, this.props.goToPage, this.measureTab.bind(this, page));
           })}
-          <Animated.View style={[tabUnderlineStyle, dynamicTabUnderline, this.props.underlineStyle, ]} />
+          <Animated.View style={[tabUnderlineStyle, dynamicTabUnderline, this.props.underlineStyle]} />
         </View>
       </ScrollView>
     </View>;
@@ -211,7 +209,7 @@ name === 'My Schedule'? <Ionicons name= 'ios-game-controller-b' size={15} color=
   componentWillReceiveProps(nextProps) {
     // If the tabs change, force the width of the tabs container to be recalculated
     if (JSON.stringify(this.props.tabs) !== JSON.stringify(nextProps.tabs) && this.state._containerWidth) {
-      this.setState({ _containerWidth: null, });
+      this.setState({_containerWidth: null});
     }
   },
 
@@ -221,17 +219,17 @@ name === 'My Schedule'? <Ionicons name= 'ios-game-controller-b' size={15} color=
     if (width < WINDOW_WIDTH) {
       width = WINDOW_WIDTH;
     }
-    this.setState({ _containerWidth: width, });
-    this.updateView({value: this.props.scrollValue._value, });
+    this.setState({_containerWidth: width});
+    this.updateView({value: this.props.scrollValue._value});
   },
 
   onContainerLayout(e) {
     this._containerMeasurements = e.nativeEvent.layout;
-    this.updateView({value: this.props.scrollValue._value, });
-  },
+    this.updateView({value: this.props.scrollValue._value});
+  }
 });
 
-module.exports = newTabBar;
+module.exports = NewTabBar;
 
 const styles = StyleSheet.create({
   tab: {
@@ -239,7 +237,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingLeft: 20,
-    paddingRight: 20,
+    paddingRight: 20
   },
   container: {
     height: 50,
