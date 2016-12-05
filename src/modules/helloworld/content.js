@@ -63,7 +63,7 @@ export default class Content extends Component {
         <TouchableHighlight onPress={() => {
           this.setModalVisible(true, item.title, item.description);
         }}>
-        <Ionicons name= 'ios-information' size={24}
+        <Ionicons name= 'ios-information-circle' size={24}
           color= '#260099' />
         </TouchableHighlight>
         <TouchableHighlight onPress={() => {
@@ -87,8 +87,11 @@ export default class Content extends Component {
   }
 
   renderSectionHeader(sectionData, category) {
+    let d = new Date(category);
+    const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    let n = weekday[d.getDay()];
     return (<View animation= 'bounceIn' delay= {400}>
-      <Text style={styles.header}>{category}</Text>
+      <Text style={styles.header}>{n}</Text>
     </View>);
   }
 

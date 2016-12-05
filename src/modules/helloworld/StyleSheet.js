@@ -1,7 +1,7 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    //flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     //backgroundColor: '#F5FCFF'
@@ -72,10 +72,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   slide: {
-    flex: 1,
+    //flex: 1,
     justifyContent: 'center',
     //alignItems: 'center',
-    backgroundColor: '#97CAE5'
+  //  backgroundColor: '#97CAE5'
+    backgroundColor: 'white'
   },
   slide3: {
     flex: 1,
@@ -103,7 +104,8 @@ const styles = StyleSheet.create({
   },
   info: {
     borderColor: '#ccc',
-    borderBottomWidth: 2
+    borderBottomWidth: 2,
+    width: Dimensions.get('window').width
 
   }
 });
