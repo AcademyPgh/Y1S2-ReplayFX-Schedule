@@ -79,13 +79,12 @@ export default class Content extends Component {
   renderScheduleItem(item) {
 
     return (
-      <View>
+      <View style={styles.container}>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.datetime}>{item.starttime} - {item.endtime}</Text>
         <Text style={styles.description}>{item.description}</Text>
         <Text style={styles.description}>{item.isFavorite ? 'favorite' : ''}</Text>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-
+        <View style = {{marginBottom: 10, justifyContent: 'space-between', flexDirection: 'row', flex: 1}}>
         <TouchableHighlight onPress={() => {
           this.setModalVisible(true, item.title, item.description);
         }}>
@@ -137,7 +136,7 @@ export default class Content extends Component {
       </TouchableHighlight>
         <Modal
           animationType={'slide'}
-          transparent={true}
+          transparent={false}
           visible={this.state.modalVisible}
           onRequestClose={() => {Alert.alert('Modal has been closed!');}}>
           <View style= {styles.innerContainer}>
@@ -151,6 +150,7 @@ export default class Content extends Component {
           </View>
         </Modal>
         <ListView
+          styles={styles.container}
           dataSource={this.state.dataSource}
           renderRow={this.renderScheduleItem}
           renderSectionHeader={this.renderSectionHeader}
