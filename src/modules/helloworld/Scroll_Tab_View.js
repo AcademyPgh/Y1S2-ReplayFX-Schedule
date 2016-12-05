@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {
-  View
+  View,
+  Text
 } from 'react-native';
 import styles from './StyleSheet';
 import _ from 'lodash';
-//import Ionicons from 'react-native-vector-icons/Ionicons';
-
 import ScrollableTabView, {ScrollableTabBar} from 'react-native-scrollable-tab-view';
+import {newTabBar} from './cray_scroll_tab_view';
 import Content from './content';
 // Using tabBarPosition='overlayTop' or 'overlayBottom' lets the content show through a
 // semitransparent tab bar. Note that if you build a custom tab bar component, its outer container
