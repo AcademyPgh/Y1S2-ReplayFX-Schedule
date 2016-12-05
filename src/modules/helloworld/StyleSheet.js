@@ -6,7 +6,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     //backgroundColor: '#F5FCFF'
     // backgroundColor: 'lightsteelblue'
-    backgroundColor: '#a5bcd9'
+  //  backgroundColor: '#a5bcd9'
+    backgroundColor: 'white'
 
   },
   welcome: {
@@ -20,35 +21,40 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   title: {
-    //color: '#333333',
-    color: '#52527a',
+    color: '#1A1B2E',
+    //color: '#52527a',
     fontSize: 15,
-    fontFamily: 'GillSans-UltraBold',
-    backgroundColor: '#E5ECEE'
+    fontFamily: 'GillSans-UltraBold'
+    //textAlign: 'center'
+  //  backgroundColor: '#E5ECEE'
   },
   description: {
     fontSize: 15,
     fontFamily: 'GillSans-Bold',
-    color: 'snow'
+    //color: 'snow'
     //color: '#52527a'
+    color: 'black'
   },
   datetime: {
-    textAlign: 'center',
+    textAlign: 'left',
     fontSize: 15,
     fontFamily: 'GillSans-Bold',
-    color: 'snow'
+  //  color: 'snow'
     //color: '#52527a'
+    color: 'black'
   },
   header: {
     color: '#FFFFFF',
     // backgroundColor: '#292650',
     backgroundColor: '#260099',
+    //backgroundColor: '#1A1B2E',
     paddingTop: 0,
     paddingRight: 10,
     paddingBottom: 0,
     paddingLeft: 10,
     fontSize: 20,
-    fontFamily: 'GillSans-Bold'
+    fontFamily: 'GillSans-Bold',
+    textAlign: 'center'
 
   },
   tabheader: {
@@ -62,7 +68,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     //backgroundColor: 'lightsteelblue'
-    backgroundColor: '#a5bcd9'
+    //backgroundColor: '#a5bcd9'
+    backgroundColor: 'white'
   },
   slide: {
     flex: 1,
@@ -82,14 +89,21 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   favorites: {
-    color: 'yellow',
-    fontWeight: 'bold'
+    color: 'gold'
+  },
+  unFavorites: {
+    color: '#260099'
   },
   innerContainer: {
     borderRadius: 10,
     alignItems: 'center',
     marginTop: 220,
     backgroundColor: 'white'
+
+  },
+  info: {
+    borderColor: '#ccc',
+    borderBottomWidth: 2
 
   }
 });

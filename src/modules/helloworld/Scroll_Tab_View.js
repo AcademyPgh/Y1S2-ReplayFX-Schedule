@@ -3,8 +3,8 @@ import {
   View
 } from 'react-native';
 import styles from './StyleSheet';
-//import ex_schedule from './schedule';
 import _ from 'lodash';
+//import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import ScrollableTabView, {ScrollableTabBar} from 'react-native-scrollable-tab-view';
 import Content from './content';
@@ -12,8 +12,11 @@ import Content from './content';
 // semitransparent tab bar. Note that if you build a custom tab bar component, its outer container
 // must consume a 'style' prop (e.g. <View style={this.props.style}) to support this feature.
 export default class Scroll_Tab_View extends Component {
+
   constructor(props) {
     super(props);
+    // const Icon = (<Ionicons name= 'ios-information' size={24}
+    //   color= '#260099' />);
     const initialFaves = [7,8];
     this.state = {
       favorites: initialFaves,

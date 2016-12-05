@@ -50,7 +50,7 @@ export default class Content extends Component {
   renderScheduleItem(item) {
 
     return (
-      <View>
+      <View style = {styles.info}>
         <Text animation='flipInY' delay={400} style={styles.title}>{item.title}</Text>
         <Text animation='flipInY' delay={400} style={styles.datetime}>@ {item.starttime} - {item.endtime}</Text>
         <Text animation='flipInY' delay={400} style={styles.description}>{item.description}</Text>
@@ -78,7 +78,7 @@ export default class Content extends Component {
         }}>
           <View animation= {item.isFavorite ? 'bounce' : 'shake'} delay={400}>
              <Ionicons name= 'ios-game-controller-b' size={36}
-               color= {item.isFavorite ? 'gold' : '#260099'} />
+               color= {item.isFavorite ? '#260099' : 'grey'} />
              </View>
            </TouchableHighlight>
        </View>
