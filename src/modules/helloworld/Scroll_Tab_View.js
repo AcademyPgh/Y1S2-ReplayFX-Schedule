@@ -1,20 +1,23 @@
 import React, {Component} from 'react';
 import {
   View
+  //Text
 } from 'react-native';
 import styles from './StyleSheet';
-import ex_schedule from './schedule';
 import _ from 'lodash';
-
 import ScrollableTabView, {ScrollableTabBar} from 'react-native-scrollable-tab-view';
+import NewTabBar from './replay_scroll_tab_view';
 import Content from './content';
 // Using tabBarPosition='overlayTop' or 'overlayBottom' lets the content show through a
 // semitransparent tab bar. Note that if you build a custom tab bar component, its outer container
 // must consume a 'style' prop (e.g. <View style={this.props.style}) to support this feature.
 export default class Scroll_Tab_View extends Component {
+
   constructor(props) {
     super(props);
-    // const initialFaves = [7,8];
+    // const Icon = (<Ionicons name= 'ios-information' size={24}
+    //   color= '#260099' />);
+    const initialFaves = [7,8];
     this.state = {
       favorites: [],
       baseSchedule: ex_schedule(),
@@ -46,15 +49,14 @@ export default class Scroll_Tab_View extends Component {
 
   render() {
     return (
-        <ScrollableTabView renderTabBar = {() => <ScrollableTabBar />} >
+        <ScrollableTabView renderTabBar = {() => <NewTabBar favoritesCount= {this.state.favorites.length}/>} >
           {this.state.tabs.map((item, index) =>
-          {return (<View style={styles.slide2} tabLabel= {item.name} key = {index}>
+          {return (<View style={styles.slide} tabLabel= {item.name} key = {index} >
             <Content
               typeIs={item.value}
               favorites={this.state.favorites}
               removeFavorite={this.removeFavorite}
-              addFavorite={this.addFavorite}
-              baseSchedule={this.state.baseSchedule} />
+              addFavorite={this.addFavorite}/>
           </View>);})}
         </ScrollableTabView>
     );

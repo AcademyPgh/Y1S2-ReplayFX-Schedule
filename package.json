@@ -40,6 +40,8 @@
     "react": "~15.3.2",
     "react-dom": "~15.3.2",
     "react-native": "~0.37.0",
+    "react-native-animatable": "^1.1.0",
+    "react-native-icons": "^0.7.1",
     "react-native-scrollable-tab-view": "^0.7.0",
     "react-native-swiper": "^1.5.4",
     "react-native-vector-icons": "^3.0.0",

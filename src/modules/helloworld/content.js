@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {
-  Text,
-  View,
+  //Text,
+  //View,
   ListView,
   Alert,
   TouchableHighlight,
@@ -9,6 +9,11 @@ import {
 } from 'react-native';
 import styles from './StyleSheet';
 import content_sections from './content_sections';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+const Info_Icon = require('../utils/Info_Icon');
+import {createAnimatableComponent, View, Text} from 'react-native-animatable';
+//const AnimatableListView = createAnimatableComponent(ListView);
+
 export default class Content extends Component {
   constructor(props) {
     super(props);
@@ -20,16 +25,14 @@ export default class Content extends Component {
 
     this.state = {
       dataSource: ds.cloneWithRowsAndSections(content_sections(this.props.typeIs, this.props.favorites)),
-      someText: 'App Made By Academy Pittsburgh',
+      // someText: 'App Made By Academy Pittsburgh',
       modalVisible: false,
       modalTitle: '',
-      modalDescription: '',
-      buttonClicked: false
+      modalDescription: ''
     };
     this.renderScheduleItem = this.renderScheduleItem.bind(this);
     this.setModalVisible = this.setModalVisible.bind(this);
-    // this.handleClick = this.handleClick.bind(this);
-    this.changeStyle = this.changeStyle.bind(this);
+    //this.changeStyle = this.changeStyle.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     const ds = new ListView.DataSource({
@@ -40,37 +43,6 @@ export default class Content extends Component {
       dataSource: ds.cloneWithRowsAndSections(content_sections(nextProps.typeIs, nextProps.favorites))
     });
   }
-  changeStyle(isFavorite) {
-    //var isSelected = isFavorite;
-    var style = {
-      color: 'navy'
-    };
-    if (isFavorite) {
-      style = {
-        color: 'yellow'
-      };
-    }
-    return style;
-  }
-  // handleClick(favoriteId) {
-  //   let tempfaves = this.state.faves;// this.setState = ({buttonClicked: !this.state.buttonClicked})
-  //   if (_.indexOf(tempfaves, favoriteId) > -1)
-  //     {
-  //     _.pull(tempfaves, favoriteId);
-  //     Alert.alert('Removed from Favorites');
-  //   }
-  //
-  //   else {
-  //     tempfaves.push(favoriteId);
-  //     Alert.alert('Added to Favorites');
-  //   }
-  //   const ds = new ListView.DataSource({
-  //     rowHasChanged: (r1, r2) => r1 !== r2,
-  //     sectionHeaderHasChanged: (s1, s2) => s1 !== s2
-  //   });
-  //   this.setState({dataSource: ds.cloneWithRowsAndSections(content_sections(this.props.typeIs, tempfaves)),
-  //     faves: tempfaves});
-  // }
 
   setModalVisible(visible, title, description) {
     this.setState({modalVisible: visible, modalTitle: title, modalDescription: description});
@@ -79,16 +51,19 @@ export default class Content extends Component {
   renderScheduleItem(item) {
 
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>{item.title}</Text>
-        <Text style={styles.datetime}>{item.starttime} - {item.endtime}</Text>
-        <Text style={styles.description}>{item.description}</Text>
-        <Text style={styles.description}>{item.isFavorite ? 'favorite' : ''}</Text>
-        <View style = {{marginBottom: 10, justifyContent: 'space-between', flexDirection: 'row', flex: 1}}>
+
+      <View style = {styles.info}>
+        <Text animation='flipInY' delay={400} style={styles.title}>{item.title}</Text>
+        <Text animation='flipInY' delay={400} style={styles.datetime}>@ {item.starttime} - {item.endtime}</Text>
+        <Text animation='flipInY' delay={400} style={styles.description}>{item.description}</Text>
+        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+
         <TouchableHighlight onPress={() => {
           this.setModalVisible(true, item.title, item.description);
         }}>
-          <Text style= {{color: 'navy'}}>[+]</Text>
+        <View>
+        <Info_Icon/>
+        </View>
         </TouchableHighlight>
         <TouchableHighlight onPress={() => {
           if (item.isFavorite)
@@ -98,30 +73,24 @@ export default class Content extends Component {
           else {
             this.props.addFavorite(item.id);
           }
+
         }}>
-             <Text style={this.changeStyle(item.isFavorite)}>[*]</Text>
+          <View animation= {item.isFavorite ? 'bounce' : 'shake'} delay={400}>
+             <Ionicons name= 'ios-game-controller-b' size={36}
+               color= {item.isFavorite ? '#3B3D68' : 'grey'} />
+             </View>
            </TouchableHighlight>
        </View>
       </View>
     );
   }
-  /*
-  <ButtonTest/>
-*/
+
   renderSectionHeader(sectionData, category) {
     let d = new Date(category);
-    console.log(d);
-    var weekday = new Array(7);
-    weekday[0] = 'Sunday';
-    weekday[1] = 'Monday';
-    weekday[2] = 'Tuesday';
-    weekday[3] = 'Wednesday';
-    weekday[4] = 'Thursday';
-    weekday[5] = 'Friday';
-    weekday[6] = 'Saturday';
 
+    const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     let n = weekday[d.getDay()];
-    return (<View>
+    return (<View animation= 'bounceIn' delay= {400}>
       <Text style={styles.header}>{n}</Text>
     </View>);
   }
@@ -129,16 +98,11 @@ export default class Content extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableHighlight onPress={() => {
-          this.setModalVisible(!this.state.modalVisible);
-        }}>
-        <Text>{this.state.someText}</Text>
-      </TouchableHighlight>
         <Modal
           animationType={'slide'}
           transparent={false}
           visible={this.state.modalVisible}
-          onRequestClose={() => {Alert.alert('Modal has been closed!');}}>
+          onRequestClose ={() => {Alert.alert('Modal has been closed!');}}>
           <View style= {styles.innerContainer}>
             <Text>{this.state.modalTitle}</Text>
             <Text>{this.state.modalDescription}</Text>
@@ -149,6 +113,7 @@ export default class Content extends Component {
             </TouchableHighlight>
           </View>
         </Modal>
+
         <ListView
           styles={styles.container}
           dataSource={this.state.dataSource}

@@ -1,15 +1,15 @@
 import {StyleSheet, Dimensions} from 'react-native';
-
+const fontName = 'Voces';
 const styles = StyleSheet.create({
 
   container: {
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    backgroundColor: '#F5FCFF',
-    alignItems: 'stretch',
-    width: Dimensions.get('window').width,
-    borderBottomWidth: 1,
-    borderBottomColor: 'grey'
+    //flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    //backgroundColor: '#F5FCFF'
+    // backgroundColor: 'lightsteelblue'
+  //  backgroundColor: '#a5bcd9'
+    backgroundColor: 'white'
   },
   welcome: {
     fontSize: 20,
@@ -22,31 +22,46 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   title: {
-    color: '#333333',
-    fontSize: 20,
-    backgroundColor: '#E5ECEE',
-    flex: 1
+    // color: '#1A1B2E',
+    //color: '#52527a',
+    color: 'black',
+    fontSize: 23,
+    fontFamily: fontName,
+    //fontWeight: 'bold',
+    paddingBottom: 2
+    //textAlign: 'center'
+  //  backgroundColor: '#E5ECEE'
   },
   description: {
     fontSize: 15,
-    paddingTop: 0,
-    paddingRight: 10,
-    paddingBottom: 0,
-    paddingLeft: 10,
-    alignItems: 'stretch'
+    fontFamily: fontName,
+    //color: 'snow'
+    //color: '#52527a'
+    color: 'black',
+    paddingBottom: 2
   },
   datetime: {
     textAlign: 'left',
-    fontSize: 15
+    fontSize: 20,
+    fontFamily: fontName,
+  //  color: 'snow'
+    //color: '#52527a'
+    color: 'black',
+    paddingBottom: 2
   },
   header: {
-    color: '#FFFFFF',
-    backgroundColor: '#292650',
-    paddingTop: 0,
+    color: '#DBDDFF',
+    // backgroundColor: '#292650',
+    backgroundColor: '#3B3D68',
+    //backgroundColor: '#1A1B2E',
+    paddingTop: 5,
     paddingRight: 10,
-    paddingBottom: 0,
+    paddingBottom: 5,
     paddingLeft: 10,
-    fontSize: 20
+    fontSize: 25,
+    fontFamily: fontName,
+    textAlign: 'center'
+
   },
   tabheader: {
     flex: 2,
@@ -55,16 +70,25 @@ const styles = StyleSheet.create({
   },
   wrapper: {
   },
-  // slide1: {
-  //   // flex: 1,
-  //   justifyContent: 'center',
-  //   alignItems: 'center'
-  //   // backgroundColor: '#9DD6EB'
-  slide2: {
-    // flex: 1,
-    justifyContent: 'space-between',
-    alignItems: 'center'
-    // backgroundColor: '#97CAE5'
+  home: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    //backgroundColor: 'lightsteelblue'
+    //backgroundColor: '#a5bcd9'
+    backgroundColor: 'white'
+  },
+  slide: {
+    //flex: 1,
+    justifyContent: 'center',
+    //alignItems: 'center',
+  //  backgroundColor: '#97CAE5'
+    backgroundColor: '#9598C0'
+  },
+  slide3: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#92BBD9'
   },
   // slide3: {
   //   flex: 1,
@@ -75,18 +99,31 @@ const styles = StyleSheet.create({
   text: {
     color: '#fff',
     fontSize: 30,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontFamily: fontName
   },
   favorites: {
-    color: 'yellow',
-    fontWeight: 'bold',
-    alignSelf: 'flex-end'
+    color: '#3B3D68'
+  },
+  unFavorites: {
+    color: 'grey'
   },
   innerContainer: {
     // borderRadius: 10,
     alignItems: 'center',
     marginTop: 200,
     backgroundColor: 'white'
+
+  },
+  info: {
+    borderColor: '#ccc',
+    borderBottomWidth: 2,
+    width: Dimensions.get('window').width,
+    paddingTop: 0,
+    paddingRight: 10,
+    paddingBottom: 0,
+    paddingLeft: 10
+
   }
 });
 
