@@ -50,7 +50,7 @@ const AppView = React.createClass({
 const styles = StyleSheet.create({
   centered: {
     flex: 1,
-    alignSelf: 'center'
+    alignSelf: 'auto'
   }
 });
 

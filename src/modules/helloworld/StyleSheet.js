@@ -1,10 +1,15 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+
 const styles = StyleSheet.create({
+
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    backgroundColor: '#F5FCFF',
+    alignItems: 'stretch',
+    width: Dimensions.get('window').width,
+    borderBottomWidth: 1,
+    borderBottomColor: 'grey'
   },
   welcome: {
     fontSize: 20,
@@ -19,13 +24,19 @@ const styles = StyleSheet.create({
   title: {
     color: '#333333',
     fontSize: 20,
-    backgroundColor: '#E5ECEE'
+    backgroundColor: '#E5ECEE',
+    flex: 1
   },
   description: {
-    fontSize: 15
+    fontSize: 15,
+    paddingTop: 0,
+    paddingRight: 10,
+    paddingBottom: 0,
+    paddingLeft: 10,
+    alignItems: 'stretch'
   },
   datetime: {
-    textAlign: 'center',
+    textAlign: 'left',
     fontSize: 15
   },
   header: {
@@ -44,24 +55,23 @@ const styles = StyleSheet.create({
   },
   wrapper: {
   },
-  slide1: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#9DD6EB'
-  },
+  // slide1: {
+  //   // flex: 1,
+  //   justifyContent: 'center',
+  //   alignItems: 'center'
+  //   // backgroundColor: '#9DD6EB'
   slide2: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#97CAE5'
+    // flex: 1,
+    justifyContent: 'space-between',
+    alignItems: 'center'
+    // backgroundColor: '#97CAE5'
   },
-  slide3: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#92BBD9'
-  },
+  // slide3: {
+  //   flex: 1,
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  //   backgroundColor: '#92BBD9'
+  // },
   text: {
     color: '#fff',
     fontSize: 30,
@@ -69,14 +79,14 @@ const styles = StyleSheet.create({
   },
   favorites: {
     color: 'yellow',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    alignSelf: 'flex-end'
   },
   innerContainer: {
-    borderRadius: 10,
+    // borderRadius: 10,
     alignItems: 'center',
-    marginTop: 220,
+    marginTop: 200,
     backgroundColor: 'white'
-
   }
 });
 

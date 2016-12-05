@@ -14,9 +14,10 @@ import Content from './content';
 export default class Scroll_Tab_View extends Component {
   constructor(props) {
     super(props);
-    const initialFaves = [7,8];
+    // const initialFaves = [7,8];
     this.state = {
-      favorites: initialFaves,
+      favorites: [],
+      baseSchedule: ex_schedule(),
       tabs:
       [{name: 'Experience', value: 'all'},
       {name: 'My Schedule', value: 'Favorites'},
@@ -32,7 +33,7 @@ export default class Scroll_Tab_View extends Component {
     this.removeFavorite = this.removeFavorite.bind(this);
   }
   addFavorite(id)
-{
+  {
     let favorites = [...this.state.favorites, id];
     this.setState({favorites});
   }
@@ -48,7 +49,12 @@ export default class Scroll_Tab_View extends Component {
         <ScrollableTabView renderTabBar = {() => <ScrollableTabBar />} >
           {this.state.tabs.map((item, index) =>
           {return (<View style={styles.slide2} tabLabel= {item.name} key = {index}>
-            <Content typeIs={item.value} favorites={this.state.favorites} removeFavorite={this.removeFavorite} addFavorite={this.addFavorite}/>
+            <Content
+              typeIs={item.value}
+              favorites={this.state.favorites}
+              removeFavorite={this.removeFavorite}
+              addFavorite={this.addFavorite}
+              baseSchedule={this.state.baseSchedule} />
           </View>);})}
         </ScrollableTabView>
     );
