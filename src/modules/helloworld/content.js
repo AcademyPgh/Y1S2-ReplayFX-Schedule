@@ -5,11 +5,13 @@ import {
   ListView,
   Alert,
   TouchableHighlight,
-  Modal
+  Modal,
+  Dimensions
 } from 'react-native';
 import styles from './StyleSheet';
 
 import content_sections from './content_sections';
+import Days from './days';
 export default class Content extends Component {
   constructor(props) {
     super(props);
@@ -19,16 +21,32 @@ export default class Content extends Component {
       sectionHeaderHasChanged: (s1, s2) => s1 !== s2
     });
     this.state = {
-      dataSource: ds.cloneWithRowsAndSections(content_sections(this.props.typeIs)),
       someText: 'App Made By Academy Pittsburgh',
       modalVisible: false,
       modalTitle: '',
       modalDescription: '',
-      buttonColor: 'yellow'
+      buttonColor: 'yellow',
     };
+
+    this.dataSource = ds.cloneWithRowsAndSections(content_sections(this.props.typeIs, this.props.faves, this.props.baseSchedule));
     this.renderScheduleItem = this.renderScheduleItem.bind(this);
     this.setModalVisible = this.setModalVisible.bind(this);
     this.changeButton = this.changeButton.bind(this);
+    this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this);
+
+    this.width = Dimensions.get('window').width; //full width
+  }
+
+  componentWillReceiveProps(nextProps)
+  {
+    //if (this.props.faves.length !== nextProps.faves.length) {
+      const ds = new ListView.DataSource({
+        rowHasChanged: (r1, r2) => r1 !== r2,
+        sectionHeaderHasChanged: (s1, s2) => s1 !== s2
+      });
+
+      this.dataSource = ds.cloneWithRowsAndSections(content_sections(nextProps.typeIs, nextProps.faves, nextProps.baseSchedule));
+    //}
   }
 
   changeButton() {
@@ -41,21 +59,24 @@ export default class Content extends Component {
   renderScheduleItem(item) {
     return (
       <View>
-        <Text style={styles.title}>{item.title}</Text>
-        <Text style={styles.datetime}>@ {item.starttime} - {item.endtime}</Text>
-        <Text style={styles.description}>{item.description}</Text>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <Text style={styles.title}>{item.Title}</Text>
+        <Text style={styles.datetime}>@ {item.StartTime} - {item.EndTime}</Text>
+        <Text style={styles.description}>{item.Description}</Text>
+        <View style={{flexDirection: 'row', justifyContent: 'space-between', flex: 1}}>
 
         <TouchableHighlight onPress={() => {
-          this.setModalVisible(true, item.title, item.description);
+          this.setModalVisible(true, item.Title, item.Description);
         }}>
           <Text>[+]</Text>
         </TouchableHighlight>
-
         <TouchableHighlight onPress={() => {
-          this.changeButton();
+          if (item.isFavorite) {
+            this.props.removeFavorite(item.Id);
+          } else {
+            this.props.addFavorite(item.Id);
+          }
         }}>
-        <Text style={{color: this.state.buttonColor}}>[*] </Text>
+        <Text style={{color: item.isFavorite ? 'blue' : 'red'}}>{item.isFavorite ? 'remove' : 'add'} favorite</Text>
         </TouchableHighlight>
 
        </View>
@@ -65,8 +86,11 @@ export default class Content extends Component {
   }
 
   renderSectionHeader(sectionData, category) {
+    let day = new Date(category);
+    day = Days[day.getDay()];
+    day = day ? day : category;
     return (<View>
-      <Text style={styles.header}>{category}</Text>
+      <Text style={styles.header}>{day}</Text>
     </View>);
   }
 
@@ -76,7 +100,7 @@ export default class Content extends Component {
         <TouchableHighlight onPress={() => {
           this.setModalVisible(!this.state.modalVisible);
         }}>
-        <Text>{this.state.someText}</Text>
+        <Text style={{width: this.width, textAlign: 'center'}}>{this.state.someText}</Text>
       </TouchableHighlight>
         <Modal
           animationType={'fade'}
@@ -94,9 +118,10 @@ export default class Content extends Component {
           </View>
         </Modal>
         <ListView
-          dataSource={this.state.dataSource}
+          dataSource={this.dataSource}
           renderRow={this.renderScheduleItem}
           renderSectionHeader={this.renderSectionHeader}
+          style={{flex: 1}}
         />
       </View>
     );

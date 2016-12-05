@@ -1,26 +1,41 @@
-import ex_schedule from './schedule';
-const content_sections = (data) => {
-  let dataMap = {};
-  ex_schedule().forEach((event) => {
-    if (data === 'all') {
-      if (!dataMap[event.date]) {
-        dataMap[event.date] = [];
-      }
+import _ from 'lodash'
 
-      dataMap[event.date].push(event);
+const content_sections = (data, favorites, schedule) => {
+  let dataMap = {};
+  schedule.forEach((event) => {
+    if (favorites.indexOf(event.Id) > -1) {
+      event.isFavorite = true;
+      event.ReplayEventTypes.push({Id: 0, Name: 'favorite', DisplayName: 'My Schedule'});
     }
     else {
-      event.type.forEach((category) => {
-        if (category === data) {
-          if (!dataMap[event.title]) {
-            dataMap[event.title] = [];
+      event.isFavorite = false;
+      event.ReplayEventTypes = _.remove(event.ReplayEventTypes, ((type) => {
+        return type.Id !== 0;
+      }));
+
+    }
+
+    if (data === 'all') {
+      if (!dataMap[event.Date]) {
+        dataMap[event.Date] = [];
+      }
+
+      dataMap[event.Date].push(event);
+    }
+    else {
+      let hasAdded = false;
+      event.ReplayEventTypes.forEach((category) => {
+        if (category.Name === data && !hasAdded) {
+          if (!dataMap[event.Title]) {
+            dataMap[event.Title] = [];
           }
-          dataMap[event.title].push(event);
+          dataMap[event.Title].push(event);
+          hasAdded = true;
         }
       });
     }
   });
-
+  //console.log(dataMap);
   return dataMap;
 };
 
