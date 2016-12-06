@@ -39,7 +39,7 @@ const NewTabBar = React.createClass({
       activeTextColor: '#3B3D68',
       inactiveTextColor: '#333',
     //  inactiveTextColor: '#737373',
-      backgroundColor: 'white',
+      //backgroundColor: 'white',
       style: {},
       tabStyle: {},
       tabsContainerStyle: {},
@@ -247,7 +247,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 2,
     borderLeftWidth: 0,
     borderRightWidth: 0,
-    borderColor: '#ccc',
+    borderColor: '#ccc'
     // marginBottom: 5
     //borderBottomWidth: 4
 
