@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {
-  //Text,
-  //View,
+
   ListView,
   Alert,
   TouchableHighlight,
@@ -12,7 +11,6 @@ import content_sections from './content_sections';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 const Info_Icon = require('../utils/Info_Icon');
 import {createAnimatableComponent, View, Text} from 'react-native-animatable';
-//const AnimatableListView = createAnimatableComponent(ListView);
 
 export default class Content extends Component {
   constructor(props) {
@@ -25,14 +23,12 @@ export default class Content extends Component {
 
     this.state = {
       dataSource: ds.cloneWithRowsAndSections(content_sections(this.props.typeIs, this.props.favorites)),
-      // someText: 'App Made By Academy Pittsburgh',
       modalVisible: false,
       modalTitle: '',
       modalDescription: ''
     };
     this.renderScheduleItem = this.renderScheduleItem.bind(this);
     this.setModalVisible = this.setModalVisible.bind(this);
-    //this.changeStyle = this.changeStyle.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     const ds = new ListView.DataSource({
@@ -53,18 +49,19 @@ export default class Content extends Component {
     return (
       <View style = {styles.info}>
         <Text animation='flipInY' delay={400} style={styles.title}>{item.title}</Text>
-        <Text animation='flipInY' delay={400} style={styles.datetime}>@ {item.starttime} - {item.endtime}</Text>
-        <Text animation='flipInY' delay={400} style={styles.description}>{item.description}</Text>
+        <Text animation='flipInY' delay={400} style={styles.datetime}>{item.starttime} - {item.endtime}</Text>
+        <Text animation='flipInY' delay={400} style={styles.description}>Location</Text>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
 
         <TouchableHighlight onPress={() => {
           this.setModalVisible(true, item.title, item.description);
-        }}>
-        <View>
-        <Info_Icon/>
-        </View>
+          }}>
+          <View>
+            <Info_Icon/>
+          </View>
         </TouchableHighlight>
-        <TouchableHighlight onPress={() => {
+
+        <TouchableHighlight  onPress={() => {
           if (item.isFavorite)
           {
             this.props.removeFavorite(item.id);
@@ -72,12 +69,11 @@ export default class Content extends Component {
           else {
             this.props.addFavorite(item.id);
           }
-
         }}>
-          <View animation= {item.isFavorite ? 'bounce' : 'shake'} delay={400}>
+          <View style={styles.infoIcon} animation= {item.isFavorite ? 'bounce' : 'shake'} delay={400}>
              <Ionicons name= 'ios-game-controller-b' size={36}
                color= {item.isFavorite ? '#3B3D68' : 'grey'} />
-             </View>
+         </View>
            </TouchableHighlight>
        </View>
       </View>

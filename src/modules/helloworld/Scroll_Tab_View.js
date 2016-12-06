@@ -9,7 +9,7 @@ import _ from 'lodash';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import NewTabBar from './replay_scroll_tab_view';
 import Content from './content';
-import Schedule from './ReplayFX_Axios';
+//import Schedule from './ReplayFX_Axios';
 // Using tabBarPosition='overlayTop' or 'overlayBottom' lets the content show through a
 // semitransparent tab bar. Note that if you build a custom tab bar component, its outer container
 // must consume a 'style' prop (e.g. <View style={this.props.style}) to support this feature.
@@ -40,30 +40,30 @@ export default class Scroll_Tab_View extends Component {
     // this.loadSchedule();
     // this.loadFavorites();
   }
-  loadFavorites() {
-    AsyncStorage.getItem('favorites', (err, value) => {
-      if (value !== null) {
-        this.setState({favories: JSON.parse(value)});
-      }
-    });
-  }
-  loadSchedule() {
-    Schedule().then((results) => {
-      this.setState({baseSchedule: results.data});
-    });
-  }
+  // loadFavorites() {
+  //   AsyncStorage.getItem('favorites', (err, value) => {
+  //     if (value !== null) {
+  //       this.setState({favories: JSON.parse(value)});
+  //     }
+  //   });
+  // }
+  // loadSchedule() {
+  //   Schedule().then((results) => {
+  //     this.setState({baseSchedule: results.data});
+  //   });
+  // }
   addFavorite(id)
 {
     let favorites = [...this.state.favorites, id];
     this.setState({favorites});
-    AsyncStorage.setItem('favorites', JSON.stringify(favorites));
+    //AsyncStorage.setItem('favorites', JSON.stringify(favorites));
   }
 
   removeFavorite(id)
 {
     let favorites = _.pull(this.state.favorites, id);
     this.setState({favorites});
-    AsyncStorage.setItem('favorites', JSON.stringify(favorites));
+    //AsyncStorage.setItem('favorites', JSON.stringify(favorites));
   }
 
   render() {
