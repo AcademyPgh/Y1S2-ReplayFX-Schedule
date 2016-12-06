@@ -37,8 +37,8 @@ export default class Scroll_Tab_View extends Component {
     this.addFavorite = this.addFavorite.bind(this);
     this.removeFavorite = this.removeFavorite.bind(this);
     this.loadFavorites = this.loadFavorites.bind(this);
-    this.loadSchedule();
-    this.loadFavorites();
+    // this.loadSchedule();
+    // this.loadFavorites();
   }
   loadFavorites() {
     AsyncStorage.getItem('favorites', (err, value) => {
