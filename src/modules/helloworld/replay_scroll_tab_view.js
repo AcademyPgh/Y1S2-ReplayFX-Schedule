@@ -38,7 +38,7 @@ const NewTabBar = React.createClass({
       activeTextColor: '#3B3D68',
       inactiveTextColor: '#333',
     //  inactiveTextColor: '#737373',
-      //backgroundColor: 'purple',
+      backgroundColor: 'transparent',
       style: {},
       tabStyle: {},
       tabsContainerStyle: {},
@@ -137,7 +137,6 @@ name === 'My Schedule' ? <Ionicons name= 'ios-game-controller-b' size={15} color
     const {activeTextColor, inactiveTextColor, textStyle} = this.props;
     const textColor = isTabActive ? activeTextColor : inactiveTextColor;
     const fontWeight = isTabActive ? 'bold' : 'normal';
-    const backgroundColor = isTabActive ? '#DBDDFF' : 'transparent';
     return (<Button
       key={`${name}_${page}`}
       accessible={true}
@@ -148,7 +147,7 @@ name === 'My Schedule' ? <Ionicons name= 'ios-game-controller-b' size={15} color
     >
       <View style={[styles.tab, this.props.tabStyle]}>
 
-        <Text style={[{color: textColor, fontWeight},{fontFamily: 'Voces'},{backgroundColor: backgroundColor}]}>
+        <Text style={[{color: textColor, fontWeight},{fontFamily: 'Voces'}]}>
           {name} <Text animation= 'flash' delay={400} iterationCount= {3}>
               {this.starCount(name)}
                </Text>
