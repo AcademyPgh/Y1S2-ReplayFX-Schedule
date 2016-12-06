@@ -9,6 +9,7 @@ import ScrollableTabView from 'react-native-scrollable-tab-view';
 import NewTabBar from './replay_scroll_tab_view';
 import Content from './content';
 //import Schedule from './ReplayFX_Axios';
+
 // Using tabBarPosition='overlayTop' or 'overlayBottom' lets the content show through a
 // semitransparent tab bar. Note that if you build a custom tab bar component, its outer container
 // must consume a 'style' prop (e.g. <View style={this.props.style}) to support this feature.
@@ -16,10 +17,10 @@ export default class Scroll_Tab_View extends Component {
 
   constructor(props) {
     super(props);
-
-    const initialFaves = [7,8];
+    //const initialFaves = [7,8];
     this.state = {
-      favorites: initialFaves,
+      favorites: [],
+      //baseSchedule: ex_schedule(),
       tabs:
       [{name: 'Experience', value: 'all'},
       {name: 'My Schedule', value: 'Favorites'},
@@ -52,7 +53,7 @@ export default class Scroll_Tab_View extends Component {
   //   });
   // }
   addFavorite(id)
-{
+  {
     let favorites = [...this.state.favorites, id];
     this.setState({favorites});
     //AsyncStorage.setItem('favorites', JSON.stringify(favorites));
@@ -70,8 +71,11 @@ export default class Scroll_Tab_View extends Component {
         <ScrollableTabView renderTabBar = {() => <NewTabBar favoritesCount= {this.state.favorites.length}/>} >
           {this.state.tabs.map((item, index) =>
           {return (<View style={styles.slide} tabLabel= {item.name} key = {index} >
-            <Content typeIs={item.value} favorites={this.state.favorites}
-              removeFavorite={this.removeFavorite} addFavorite={this.addFavorite}/>
+            <Content
+              typeIs={item.value}
+              favorites={this.state.favorites}
+              removeFavorite={this.removeFavorite}
+              addFavorite={this.addFavorite}/>
           </View>);})}
         </ScrollableTabView>
     );

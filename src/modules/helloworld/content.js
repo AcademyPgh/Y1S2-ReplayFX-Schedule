@@ -6,7 +6,7 @@ import {
   TouchableHighlight,
   Modal
 } from 'react-native';
-import styles from './StyleSheet';
+import styles, {stylechoice} from './StyleSheet';
 import content_sections from './content_sections';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 const Info_Icon = require('../utils/Info_Icon');
@@ -47,21 +47,22 @@ export default class Content extends Component {
   renderScheduleItem(item) {
 
     return (
+
       <View style = {styles.info}>
         <Text animation='flipInY' delay={400} style={styles.title}>{item.title}</Text>
-        <Text animation='flipInY' delay={400} style={styles.datetime}>{item.starttime} - {item.endtime}</Text>
+        <Text animation='flipInY' delay={400} style={styles.datetime}> {item.starttime} - {item.endtime}</Text>
         <Text animation='flipInY' delay={400} style={styles.description}>Location</Text>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View style={styles.iconrowstyle}>
 
         <TouchableHighlight onPress={() => {
           this.setModalVisible(true, item.title, item.description);
-          }}>
+        }}>
           <View>
             <Info_Icon/>
           </View>
         </TouchableHighlight>
 
-        <TouchableHighlight  onPress={() => {
+        <TouchableHighlight onPress={() => {
           if (item.isFavorite)
           {
             this.props.removeFavorite(item.id);
@@ -72,8 +73,8 @@ export default class Content extends Component {
         }}>
           <View style={styles.infoIcon} animation= {item.isFavorite ? 'bounce' : 'shake'} delay={400}>
              <Ionicons name= 'ios-game-controller-b' size={36}
-               color= {item.isFavorite ? '#3B3D68' : 'grey'} />
-         </View>
+               color= {item.isFavorite ? stylechoice.accentcolor : stylechoice.inactive} />
+             </View>
            </TouchableHighlight>
        </View>
       </View>
@@ -82,6 +83,7 @@ export default class Content extends Component {
 
   renderSectionHeader(sectionData, category) {
     let d = new Date(category);
+
     const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     let n = weekday[d.getDay()];
     return (<View animation= 'bounceIn' delay= {400}>
@@ -94,7 +96,7 @@ export default class Content extends Component {
       <View style={styles.container}>
         <Modal
           animationType={'slide'}
-          transparent={true}
+          transparent={false}
           visible={this.state.modalVisible}
           onRequestClose ={() => {Alert.alert('Modal has been closed!');}}>
           <View style= {styles.innerContainer}>
@@ -109,6 +111,7 @@ export default class Content extends Component {
         </Modal>
 
         <ListView
+          styles={styles.container}
           dataSource={this.state.dataSource}
           renderRow={this.renderScheduleItem}
           renderSectionHeader={this.renderSectionHeader}
