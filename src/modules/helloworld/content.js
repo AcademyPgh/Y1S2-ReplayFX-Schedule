@@ -7,7 +7,7 @@ import {
   TouchableHighlight,
   Modal
 } from 'react-native';
-import styles from './StyleSheet';
+import styles, {stylechoice} from './StyleSheet';
 import content_sections from './content_sections';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 const Info_Icon = require('../utils/Info_Icon');
@@ -56,7 +56,7 @@ export default class Content extends Component {
         <Text animation='flipInY' delay={400} style={styles.title}>{item.title}</Text>
         <Text animation='flipInY' delay={400} style={styles.datetime}>@ {item.starttime} - {item.endtime}</Text>
         <Text animation='flipInY' delay={400} style={styles.description}>{item.description}</Text>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View style={styles.iconrowstyle}>
 
         <TouchableHighlight onPress={() => {
           this.setModalVisible(true, item.title, item.description);
@@ -77,7 +77,7 @@ export default class Content extends Component {
         }}>
           <View animation= {item.isFavorite ? 'bounce' : 'shake'} delay={400}>
              <Ionicons name= 'ios-game-controller-b' size={36}
-               color= {item.isFavorite ? '#3B3D68' : 'grey'} />
+               color= {item.isFavorite ? stylechoice.accentcolor : stylechoice.inactive} />
              </View>
            </TouchableHighlight>
        </View>

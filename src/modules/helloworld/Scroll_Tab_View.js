@@ -17,9 +17,7 @@ export default class Scroll_Tab_View extends Component {
 
   constructor(props) {
     super(props);
-    // const Icon = (<Ionicons name= 'ios-information' size={24}
-    //   color= '#260099' />);
-    const initialFaves = [7,8];
+    //const initialFaves = [7,8];
     this.state = {
       favorites: [],
       baseSchedule: ex_schedule(),

@@ -12,6 +12,7 @@ const {
 const Button = require('../utils/Button');
 import {View, Text} from 'react-native-animatable';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import styles, {stylechoice} from './StyleSheet';
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
 
@@ -36,10 +37,9 @@ const NewTabBar = React.createClass({
   getDefaultProps() {
     return {
       scrollOffset: 52,
-      activeTextColor: '#3B3D68',
-      inactiveTextColor: '#333',
-    //  inactiveTextColor: '#737373',
-      backgroundColor: 'white',
+      activeTextColor: stylechoice.accentcolor,
+      inactiveTextColor: stylechoice.infocolor,
+      backgroundColor: 'transparent',
       style: {},
       tabStyle: {},
       tabsContainerStyle: {},
@@ -127,7 +127,7 @@ const NewTabBar = React.createClass({
   starCount(name) {
     if (this.props.favoritesCount >= 0) {
       return (
-name === 'My Schedule' ? <Ionicons name= 'ios-game-controller-b' size={15} color= '#3B3D68'>
+name === 'My Schedule' ? <Ionicons name= 'ios-game-controller-b' style = {styles.gamecontroller}>
       <Text> {this.props.favoritesCount} </Text>
     </Ionicons> : ''
       );
@@ -137,7 +137,7 @@ name === 'My Schedule' ? <Ionicons name= 'ios-game-controller-b' size={15} color
   renderTab(name, page, isTabActive, onPressHandler, onLayoutHandler) {
     const {activeTextColor, inactiveTextColor, textStyle} = this.props;
     const textColor = isTabActive ? activeTextColor : inactiveTextColor;
-    const fontWeight = isTabActive ? 'bold' : 'normal';
+    //const fontWeight = isTabActive ? 'bold' : 'normal';
 
     return (<Button
       key={`${name}_${page}`}
@@ -149,7 +149,7 @@ name === 'My Schedule' ? <Ionicons name= 'ios-game-controller-b' size={15} color
     >
       <View style={[styles.tab, this.props.tabStyle]}>
 
-        <Text style={[{color: textColor, fontWeight},{fontFamily: 'Voces'}]}>
+        <Text style={[{color: textColor}, {fontFamily: stylechoice.fontName}]}>
           {name} <Text animation= 'flash' delay={400} iterationCount= {3}>
               {this.starCount(name)}
                </Text>
@@ -166,13 +166,14 @@ name === 'My Schedule' ? <Ionicons name= 'ios-game-controller-b' size={15} color
   },
 
   render() {
-    const tabUnderlineStyle = {
-      position: 'absolute',
-      height: 49,
-      backgroundColor: '#DBDDFF',
-      bottom: 0,
-      zIndex: -1
-    };
+    const tabUnderlineStyle = styles.tabUnderline;
+
+    // {
+    //   position: 'absolute',
+    //   height: 49,
+    //   backgroundColor: '#DBDDFF',
+    //   bottom: 0,
+    //   zIndex: -1};
 
     const dynamicTabUnderline = {
       left: this.state._leftTabUnderline,
@@ -180,7 +181,7 @@ name === 'My Schedule' ? <Ionicons name= 'ios-game-controller-b' size={15} color
     };
 
     return <View
-      style={[styles.container, {backgroundColor: this.props.backgroundColor}, this.props.style]}
+      style={[styles.tabcontainer, {backgroundColor: this.props.backgroundColor}, this.props.style]}
       onLayout={this.onContainerLayout}
     >
       <ScrollView
@@ -232,28 +233,3 @@ name === 'My Schedule' ? <Ionicons name= 'ios-game-controller-b' size={15} color
 });
 
 module.exports = NewTabBar;
-
-const styles = StyleSheet.create({
-  tab: {
-    height: 49,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingLeft: 20,
-    paddingRight: 20
-  },
-  container: {
-    height: 50,
-    //borderWidth: 1,
-    borderTopWidth: 2,
-    borderLeftWidth: 0,
-    borderRightWidth: 0,
-    borderColor: '#ccc',
-    // marginBottom: 5
-    //borderBottomWidth: 4
-
-  },
-  tabs: {
-    flexDirection: 'row',
-    justifyContent: 'space-around'
-  }
-});
