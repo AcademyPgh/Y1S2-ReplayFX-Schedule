@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import {
   View,
   AsyncStorage
-  //Text
+<<<<<<< HEAD
+=======
+>>>>>>> origin/kalene
 } from 'react-native';
 import styles from './StyleSheet';
 import _ from 'lodash';
