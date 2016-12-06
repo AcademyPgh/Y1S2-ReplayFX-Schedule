@@ -30,6 +30,7 @@
     "preset": "jest-react-native"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "bluebird": "^3.3.5",
     "class-autobind": "^0.1.4",
     "es6-symbol": "^3.0.2",

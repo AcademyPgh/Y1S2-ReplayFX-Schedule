@@ -22,7 +22,7 @@ export default class Content extends Component {
     });
 
     this.state = {
-      dataSource: ds.cloneWithRowsAndSections(content_sections(this.props.typeIs, this.props.favorites)),
+      dataSource: ds.cloneWithRowsAndSections(content_sections(this.props.typeIs, this.props.favorites, this.props.baseSchedule)),
       modalVisible: false,
       modalTitle: '',
       modalDescription: ''
@@ -36,7 +36,7 @@ export default class Content extends Component {
       sectionHeaderHasChanged: (s1, s2) => s1 !== s2
     });
     this.setState({
-      dataSource: ds.cloneWithRowsAndSections(content_sections(nextProps.typeIs, nextProps.favorites))
+      dataSource: ds.cloneWithRowsAndSections(content_sections(nextProps.typeIs, nextProps.favorites, nextProps.baseSchedule))
     });
   }
 
