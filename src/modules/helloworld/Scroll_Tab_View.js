@@ -1,22 +1,16 @@
 import React, {Component} from 'react';
 import {
   View
-  //Text
 } from 'react-native';
 import styles from './StyleSheet';
 import _ from 'lodash';
 import ScrollableTabView, {ScrollableTabBar} from 'react-native-scrollable-tab-view';
 import NewTabBar from './replay_scroll_tab_view';
 import Content from './content';
-// Using tabBarPosition='overlayTop' or 'overlayBottom' lets the content show through a
-// semitransparent tab bar. Note that if you build a custom tab bar component, its outer container
-// must consume a 'style' prop (e.g. <View style={this.props.style}) to support this feature.
 export default class Scroll_Tab_View extends Component {
 
   constructor(props) {
     super(props);
-    // const Icon = (<Ionicons name= 'ios-information' size={24}
-    //   color= '#260099' />);
     const initialFaves = [7,8];
     this.state = {
       favorites: initialFaves,

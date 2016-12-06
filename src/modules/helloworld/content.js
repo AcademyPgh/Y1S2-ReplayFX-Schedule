@@ -70,7 +70,7 @@ export default class Content extends Component {
             this.props.addFavorite(item.id);
           }
         }}>
-          <View style={styles.infoIcon}animation= {item.isFavorite ? 'bounce' : 'shake'} delay={400}>
+          <View style={styles.infoIcon} animation= {item.isFavorite ? 'bounce' : 'shake'} delay={400}>
              <Ionicons name= 'ios-game-controller-b' size={36}
                color= {item.isFavorite ? '#3B3D68' : 'grey'} />
          </View>

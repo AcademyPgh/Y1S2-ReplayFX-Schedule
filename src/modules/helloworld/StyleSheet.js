@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
   slide: {
     justifyContent: 'center',
     backgroundColor: '#9598C0'
+
   },
   text: {
     color: '#fff',
