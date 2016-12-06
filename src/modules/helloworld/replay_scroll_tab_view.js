@@ -37,10 +37,6 @@ const NewTabBar = React.createClass({
       scrollOffset: 52,
       activeTextColor: '#3B3D68',
       inactiveTextColor: '#333',
-<<<<<<< HEAD
-    //  inactiveTextColor: '#737373',
-=======
->>>>>>> origin/kalene
       backgroundColor: 'transparent',
       style: {},
       tabStyle: {},

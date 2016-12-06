@@ -2,9 +2,6 @@ import React, {Component} from 'react';
 import {
   View,
   AsyncStorage
-<<<<<<< HEAD
-=======
->>>>>>> origin/kalene
 } from 'react-native';
 import styles from './StyleSheet';
 import _ from 'lodash';
@@ -38,7 +35,7 @@ export default class Scroll_Tab_View extends Component {
 
     this.addFavorite = this.addFavorite.bind(this);
     this.removeFavorite = this.removeFavorite.bind(this);
-    this.loadFavorites = this.loadFavorites.bind(this);
+    //this.loadFavorites = this.loadFavorites.bind(this);
     // this.loadSchedule();
     // this.loadFavorites();
   }
