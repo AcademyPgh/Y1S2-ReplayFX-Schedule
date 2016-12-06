@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {
-  View
+  View,
+  AsyncStorage
 } from 'react-native';
 import styles from './StyleSheet';
 import _ from 'lodash';
