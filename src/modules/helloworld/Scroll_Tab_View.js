@@ -37,39 +37,35 @@ export default class Scroll_Tab_View extends Component {
     this.addFavorite = this.addFavorite.bind(this);
     this.removeFavorite = this.removeFavorite.bind(this);
     this.loadSchedule = this.loadSchedule.bind(this);
-  //  this.loadFavorites = this.loadFavorites.bind(this);
+    this.loadFavorites = this.loadFavorites.bind(this);
 
     this.loadSchedule();
-    //this.loadFavorites();
+    this.loadFavorites();
   }
-  // loadFavorites() {
-  //   AsyncStorage.getItem('favorites', (err, value) => {
-  //     if (value !== null) {
-  //       this.setState({favorites: JSON.parse(value)});
-  //     }
-  //   });
-  // }
-  loadSchedule() {
-    //console.log('loading schedule');
-    Schedule().then((results) => {
-      this.setState({baseSchedule: results.data});
-    //  console.log(results);
+  loadFavorites() {
+    AsyncStorage.getItem('favorites', (err, value) => {
+      if (value !== null) {
+        this.setState({favorites: JSON.parse(value)});
+      }
     });
-
-    //this.setState({baseSchedule: Schedule()})
   }
+  loadSchedule() {
+    this.loadSchedule();
+    this.loadFavorites();
+  }
+
   addFavorite(id)
   {
     let favorites = [...this.state.favorites, id];
     this.setState({favorites});
-    //AsyncStorage.setItem('favorites', JSON.stringify(favorites));
+    AsyncStorage.setItem('favorites', JSON.stringify(favorites));
   }
 
   removeFavorite(id)
 {
     let favorites = _.pull(this.state.favorites, id);
     this.setState({favorites});
-    //AsyncStorage.setItem('favorites', JSON.stringify(favorites));
+    AsyncStorage.setItem('favorites', JSON.stringify(favorites));
   }
 
   render() {

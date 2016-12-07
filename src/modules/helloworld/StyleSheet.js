@@ -50,12 +50,15 @@ const styles = StyleSheet.create({
     paddingBottom: 2
   },
   datetime: {
+    //flexDirection: 'row',
+    //justifyContent: 'space-between',
     textAlign: 'left',
     fontSize: 15,
     fontWeight: 'bold',
     color: stylechoice.timeColor,
     paddingBottom: 2
   },
+
   header: {
     color: stylechoice.lightaccent,
     backgroundColor: stylechoice.accentcolor,

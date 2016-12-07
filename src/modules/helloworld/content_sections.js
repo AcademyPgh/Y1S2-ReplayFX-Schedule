@@ -4,22 +4,23 @@ const content_sections = (data, favorites, schedule) => {
   schedule.forEach((event) => {
     if (_.indexOf(favorites, event.id) > -1)
     {event.isFavorite = true;
-      if (!_.some(event.replayEventTypes, 'favorites')) {
-        event.replayEventTypes.push({name: 'favorites'});
+
+      if (!_.some(event.replayEventTypes, (row) => {
+        return row.name === 'favorites';}
+      ))
+      {event.replayEventTypes.push({name: 'favorites'});
       }
     }
     else
     {
       event.isFavorite = false;
-      _.remove(event.replayEventTypes,(row) =>
-      {
+      _.remove(event.replayEventTypes, (row) => {
         if (row.name === 'favorites')
-          {return true;}
+        {return true;}
         else
-      {return false;}
+        {return false;}
       });
     }
-
     if (data === 'all') {
       if (!dataMap[event.date]) {
         dataMap[event.date] = [];
