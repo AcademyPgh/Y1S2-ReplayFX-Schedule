@@ -48,7 +48,7 @@ export default class Content extends Component {
   }
 
   renderInfoButton(item) {
-    if (item.extendedDescription)
+    if (item.extendedDescription || item.image)
     {return (
   <TouchableHighlight onPress={() => {
     this.setModalVisible(true, item.title, item.extendedDescription, item.image);
