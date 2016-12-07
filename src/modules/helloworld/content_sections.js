@@ -1,4 +1,5 @@
 import _ from 'lodash';
+// sorts content into sections based on the types (if it's a favorite, all, movie, etc.)
 const content_sections = (data, favorites, schedule) => {
   let dataMap = {};
   schedule.forEach((event) => {
@@ -38,8 +39,6 @@ const content_sections = (data, favorites, schedule) => {
       });
     }
   });
-//  console.log('Here comes the dataMap');
-//  console.log(dataMap);
   return dataMap;
 };
 
