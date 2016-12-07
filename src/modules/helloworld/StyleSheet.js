@@ -38,22 +38,49 @@ const styles = StyleSheet.create({
   },
   title: {
     color: stylechoice.regtextcolor,
-    fontSize: 23,
+    fontSize: 18,
     fontFamily: stylechoice.fontName,
     paddingBottom: 2,
-    paddingTop: 5
+    paddingTop: 2
   },
+  modaltitle: {
+    color: stylechoice.regtextcolor,
+    fontSize: 24,
+    fontFamily: stylechoice.fontName,
+    paddingBottom: 2,
+    paddingTop: 3
+  },
+
   description: {
-    fontSize: 15,
+    fontSize: 12,
+    fontFamily: stylechoice.fontName,
+    color: stylechoice.regtextcolor,
+    paddingBottom: 1
+  },
+
+  modaldescription: {
+    fontSize: 16,
     fontFamily: stylechoice.fontName,
     color: stylechoice.regtextcolor,
     paddingBottom: 2
+
   },
+
   datetime: {
     //flexDirection: 'row',
     //justifyContent: 'space-between',
     textAlign: 'left',
-    fontSize: 15,
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: stylechoice.timeColor,
+    paddingBottom: 2
+  },
+
+  modaldatetime: {
+    //flexDirection: 'row',
+    //justifyContent: 'space-between',
+    textAlign: 'left',
+    fontSize: 16,
     fontWeight: 'bold',
     color: stylechoice.timeColor,
     paddingBottom: 2
@@ -62,11 +89,11 @@ const styles = StyleSheet.create({
   header: {
     color: stylechoice.lightaccent,
     backgroundColor: stylechoice.accentcolor,
-    paddingTop: 5,
-    paddingRight: 10,
-    paddingBottom: 5,
-    paddingLeft: 10,
-    fontSize: 25,
+    paddingTop: 2,
+    paddingRight: 8,
+    paddingBottom: 2,
+    paddingLeft: 8,
+    fontSize: 18,
     fontFamily: stylechoice.fontName,
     textAlign: 'center'
 
@@ -94,7 +121,7 @@ const styles = StyleSheet.create({
   //   backgroundColor: '#92BBD9'
   text: {
     color: stylechoice.alttext,
-    fontSize: 30,
+    fontSize: 24,
     //fontWeight: 'bold',
     fontFamily: stylechoice.fontName
   },
@@ -105,10 +132,11 @@ const styles = StyleSheet.create({
     color: stylechoice.inactive
   },
   innerContainer: {
-    alignItems: 'center',
-    marginTop: 200,
-    backgroundColor: stylechoice.regbackground
-
+    // alignItems: 'flex-start',
+    marginTop: 25,
+    backgroundColor: stylechoice.regbackground,
+    marginLeft: 10,
+    marginRight: 10
   },
 
   iconrowstyle: {
@@ -128,7 +156,7 @@ const styles = StyleSheet.create({
   },
 
   infoIcon: {
-    paddingTop: 5,
+    paddingTop: 1,
     paddingBottom: 0
 
   },
@@ -142,17 +170,30 @@ const styles = StyleSheet.create({
 
   logoimage: {
     width: 200,
-    height: 100
+    height: 100,
+    alignItems: 'center'
+  },
+  modalimage: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').width / 2,
+    resizeMode: 'contain',
+    borderWidth: 5,
+    borderColor: stylechoice.regtextcolor,
+    borderRadius: 25
+
+    //textAlign: 'left'
+    // height: 100
+  //  alignItems: 'center',
   },
   tab: {
-    height: 49,
+    height: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingLeft: 20,
-    paddingRight: 20
+    paddingLeft: 18,
+    paddingRight: 18
   },
   tabcontainer: {
-    height: 50,
+    height: 41,
     borderTopWidth: 2,
     borderLeftWidth: 0,
     borderRightWidth: 0,
@@ -165,19 +206,21 @@ const styles = StyleSheet.create({
   },
 
   gamecontroller: {
-    fontSize: 15,
+    fontSize: 14,
     color: stylechoice.accentcolor
   },
 
   tabUnderline: {
 
     position: 'absolute',
-    height: 49,
+    height: 40,
     backgroundColor: stylechoice.lightaccent,
     bottom: 0,
     zIndex: -1
+  },
+  center: {
+    alignItems: 'center'
   }
-
 });
 
 export default styles;

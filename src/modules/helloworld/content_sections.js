@@ -39,7 +39,7 @@ const content_sections = (data, favorites, schedule) => {
       });
     }
   });
-  console.log(dataMap);
+
   return dataMap;
 };
 

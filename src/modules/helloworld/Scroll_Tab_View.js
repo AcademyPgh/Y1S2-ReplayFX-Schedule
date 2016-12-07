@@ -8,7 +8,7 @@ import _ from 'lodash';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import NewTabBar from './replay_scroll_tab_view';
 import Content from './content';
-import Schedule from './ReplayFX_Axios';
+import Schedule, {Types} from './ReplayFX_Axios';
 
 // Using tabBarPosition='overlayTop' or 'overlayBottom' lets the content show through a
 // semitransparent tab bar. Note that if you build a custom tab bar component, its outer container
@@ -21,16 +21,17 @@ export default class Scroll_Tab_View extends Component {
     this.state = {
       favorites: [],
       //baseSchedule: ex_schedule(),
-      tabs:
-      [{name: 'Experience', value: 'all'},
-      {name: 'My Schedule', value: 'favorites'},
-      {name: 'Featured', value: 'featured'},
-      {name: 'Play', value: 'games'},
-      {name: 'Compete', value: 'competition'},
-      {name: 'Watch', value: 'movies'},
-      {name: 'Listen', value: 'music'},
-      {name: 'Learn', value: 'seminar'}
+      tabs: [
+        {DisplayName: 'Experience', Name: 'all'},
+        {DisplayName: 'My Schedule', Name: 'favorites'}
       ],
+      // {name: 'Featured', value: 'featured'},
+      // {name: 'Play', value: 'games'},
+      // {name: 'Compete', value: 'competition'},
+      // {name: 'Watch', value: 'movies'},
+      // {name: 'Listen', value: 'music'},
+      // {name: 'Learn', value: 'seminar'}
+      // ],
       baseSchedule: []
     };
 
@@ -38,9 +39,11 @@ export default class Scroll_Tab_View extends Component {
     this.removeFavorite = this.removeFavorite.bind(this);
     this.loadSchedule = this.loadSchedule.bind(this);
     this.loadFavorites = this.loadFavorites.bind(this);
+    this.loadTypes = this.loadTypes.bind(this);
 
     this.loadSchedule();
     this.loadFavorites();
+    this.loadTypes();
   }
   loadFavorites() {
     AsyncStorage.getItem('favorites', (err, value) => {
@@ -55,11 +58,17 @@ export default class Scroll_Tab_View extends Component {
     });
 
   }
+  loadTypes() {
+    Types().then((results) => {
+      this.setState({tabs: [...this.state.tabs, ...results.data]});
+    });
+  }
 
   addFavorite(id)
   {
     let favorites = [...this.state.favorites, id];
     this.setState({favorites});
+
     AsyncStorage.setItem('favorites', JSON.stringify(favorites));
   }
 
@@ -71,12 +80,14 @@ export default class Scroll_Tab_View extends Component {
   }
 
   render() {
+    console.log('Here come the tabs');
+    console.log(this.state.tabs);
     return (
         <ScrollableTabView renderTabBar = {() => <NewTabBar favoritesCount= {this.state.favorites.length}/>} >
           {this.state.tabs.map((item, index) =>
-          {return (<View style={styles.slide} tabLabel= {item.name} key = {index} >
+          {return (<View style={styles.slide} tabLabel= {item.DisplayName} key = {index} >
             <Content
-              typeIs={item.value}
+              typeIs={item.Name}
               favorites={this.state.favorites}
               removeFavorite={this.removeFavorite}
               addFavorite={this.addFavorite}

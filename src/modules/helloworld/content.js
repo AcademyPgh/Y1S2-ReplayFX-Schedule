@@ -27,7 +27,10 @@ export default class Content extends Component {
       modalVisible: false,
       modalTitle: '',
       modalDescription: '',
-      modalImage: ''
+      modalImage: '',
+      modalStartTime: '',
+      modalEndTime: '',
+      modalLocation: ''
     };
     this.renderScheduleItem = this.renderScheduleItem.bind(this);
     this.setModalVisible = this.setModalVisible.bind(this);
@@ -43,15 +46,22 @@ export default class Content extends Component {
     });
   }
 
-  setModalVisible(visible, title, extendedDescription, image) {
-    this.setState({modalVisible: visible, modalTitle: title, modalDescription: extendedDescription, modalImage: image});
+  setModalVisible(visible, title, startTime, endTime, location, extendedDescription, image) {
+    this.setState({
+      modalVisible: visible,
+      modalTitle: title,
+      modalStartTime: startTime,
+      modalEndTime: endTime,
+      modalLocation: location,
+      modalDescription: extendedDescription,
+      modalImage: image});
   }
 
   renderInfoButton(item) {
     if (item.extendedDescription || item.image)
     {return (
   <TouchableHighlight onPress={() => {
-    this.setModalVisible(true, item.title, item.extendedDescription, item.image);
+    this.setModalVisible(true, item.title, item.startTime, item.endTime, item.location, item.extendedDescription, item.image);
   }}>
     <View>
       <Info_Icon/>
@@ -114,14 +124,20 @@ export default class Content extends Component {
           visible={this.state.modalVisible}
           onRequestClose ={() => {Alert.alert('Modal has been closed!');}}>
           <View style= {styles.innerContainer}>
-            <Text>{this.state.modalTitle}</Text>
-            <Text>{this.state.modalDescription}</Text>
-            <Image source={{uri: this.state.modalImage}} style={styles.logoimage}/>
+            <Text style={styles.modaltitle}>{this.state.modalTitle}</Text>
+            <Text style={styles.modaldatetime}>{this.state.modalStartTime} - {this.state.modalEndTime}</Text>
+            <Text style ={styles.modaldatetime}>{this.state.modalLocation}</Text>
+            <View style ={{alignItems: 'center'}}> 
+                <Image source={{uri: this.state.modalImage}} style={styles.modalimage}/>
+           </View>
+            <Text style = {styles.modaldescription}>{this.state.modalDescription}</Text>
+            <View style ={styles.center}>
             <TouchableHighlight onPress={() => {
               this.setModalVisible(!this.state.modalVisible);
             }}>
               <Text style= {styles.title}>Close</Text>
             </TouchableHighlight>
+          </View>
           </View>
         </Modal>
 
