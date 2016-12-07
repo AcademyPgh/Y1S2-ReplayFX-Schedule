@@ -10,18 +10,20 @@ import {
 import styles, {stylechoice} from './StyleSheet';
 import content_sections from './content_sections';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-const Info_Icon = require('../utils/Info_Icon');
+import Info_Icon from '../utils/Info_Icon';
+import CloseIcon from '../utils/closeIcon';
 import {createAnimatableComponent, View, Text} from 'react-native-animatable';
 
 export default class Content extends Component {
   constructor(props) {
     super(props);
-
+    //this renders out each schedule item
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2,
       sectionHeaderHasChanged: (s1, s2) => s1 !== s2
     });
 
+    //
     this.state = {
       dataSource: ds.cloneWithRowsAndSections(content_sections(this.props.typeIs, this.props.favorites, this.props.baseSchedule)),
       modalVisible: false,
@@ -135,8 +137,7 @@ export default class Content extends Component {
             <TouchableHighlight onPress={() => {
               this.setModalVisible(!this.state.modalVisible);
             }}>
-              <Text style= {styles.title}><Ionicons name= 'ios-close-circle' size={36}
-                color= {stylechoice.accentcolor} /></Text>
+              <View><CloseIcon/></View>
             </TouchableHighlight>
           </View>
           </View>

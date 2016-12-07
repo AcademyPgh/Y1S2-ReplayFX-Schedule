@@ -7,5 +7,4 @@ const Info_Icon = () => {
     color= {stylechoice.accentcolor} />
   );
 };
-module.exports = Info_Icon;
-//export default Info_Icon;
+export default Info_Icon;
