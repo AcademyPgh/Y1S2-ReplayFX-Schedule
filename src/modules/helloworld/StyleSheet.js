@@ -43,17 +43,44 @@ const styles = StyleSheet.create({
     paddingBottom: 2,
     paddingTop: 5
   },
+  modaltitle: {
+    color: stylechoice.regtextcolor,
+    fontSize: 30,
+    fontFamily: stylechoice.fontName,
+    paddingBottom: 2,
+    paddingTop: 5
+  },
+
   description: {
     fontSize: 15,
     fontFamily: stylechoice.fontName,
     color: stylechoice.regtextcolor,
     paddingBottom: 2
   },
+
+  modaldescription: {
+    fontSize: 20,
+    fontFamily: stylechoice.fontName,
+    color: stylechoice.regtextcolor,
+    paddingBottom: 2
+
+  },
+
   datetime: {
     //flexDirection: 'row',
     //justifyContent: 'space-between',
     textAlign: 'left',
     fontSize: 15,
+    fontWeight: 'bold',
+    color: stylechoice.timeColor,
+    paddingBottom: 2
+  },
+
+  modaldatetime: {
+    //flexDirection: 'row',
+    //justifyContent: 'space-between',
+    textAlign: 'left',
+    fontSize: 20,
     fontWeight: 'bold',
     color: stylechoice.timeColor,
     paddingBottom: 2
@@ -105,10 +132,11 @@ const styles = StyleSheet.create({
     color: stylechoice.inactive
   },
   innerContainer: {
-    alignItems: 'center',
-    marginTop: 200,
-    backgroundColor: stylechoice.regbackground
-
+    // alignItems: 'flex-start',
+    marginTop: 25,
+    backgroundColor: stylechoice.regbackground,
+    marginLeft: 10,
+    marginRight: 10
   },
 
   iconrowstyle: {
@@ -142,7 +170,23 @@ const styles = StyleSheet.create({
 
   logoimage: {
     width: 200,
-    height: 100
+    height: 100,
+    alignItems: 'center'
+  },
+  modalimage: {
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: stylechoice.regtextcolor,
+    borderRadius: 10,
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').width / 2,
+    resizeMode: 'contain'
+
+    //textAlign: 'left'
+    // height: 100
+  //  alignItems: 'center',
   },
   tab: {
     height: 49,
@@ -176,8 +220,10 @@ const styles = StyleSheet.create({
     backgroundColor: stylechoice.lightaccent,
     bottom: 0,
     zIndex: -1
+  },
+  center: {
+    alignItems: 'center'
   }
-
 });
 
 export default styles;
