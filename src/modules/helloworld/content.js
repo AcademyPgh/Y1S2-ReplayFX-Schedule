@@ -50,8 +50,9 @@ export default class Content extends Component {
 
       <View style = {styles.info}>
         <Text animation='flipInY' delay={400} style={styles.title}>{item.title}</Text>
-        <Text animation='flipInY' delay={400} style={styles.datetime}> {item.starttime} - {item.endtime}</Text>
-        <Text animation='flipInY' delay={400} style={styles.description}>Location</Text>
+        <Text animation='flipInY' delay={400} style={styles.datetime}> {item.startTime} - {item.endTime}</Text>
+        <Text animation='flipInY' delay={400} style={styles.datetime}>{item.location}</Text>
+        <Text animation='flipInY' delay={400} style={styles.description}>{item.description}</Text>
         <View style={styles.iconrowstyle}>
 
         <TouchableHighlight onPress={() => {

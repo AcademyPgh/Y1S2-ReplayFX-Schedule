@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const Schedule = () => {
   console.log("attempting axios");
-  return axios('http://replayfxcalendar.azurewebsites.net/public');
+  return axios('https://replayfxcalendar.azurewebsites.net/public');
 };
 
 export default Schedule;
