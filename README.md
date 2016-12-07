@@ -1,118 +1,40 @@
-![Pepperoni - Empowered by Futurice](/docs/pepperoni.png?v=2)
-Futurice React Native Starter Kit
-===
+The [ReplayFX](http://replayfx.org) App is the perfect companion for anyone attending the annual Replay Foundation Expo in Pittsburgh on July 27-30, 2017. The four-day conference will feature more than 750 arcade and pinball machines, over 2,000 retro console games, tabletop games, a showcase of new products by game developers, competitions offering over $110,000 in prize money, movies, seminars, magicians, live musicians, balloon artists, face-painters, and more.
 
-[![Join the chat at https://gitter.im/futurice/pepperoni-app-kit](https://badges.gitter.im/futurice/pepperoni-app-kit.svg)](https://gitter.im/futurice/pepperoni-app-kit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Build Status](https://travis-ci.org/futurice/pepperoni-app-kit.svg?branch=master)](https://travis-ci.org/futurice/pepperoni-app-kit)
-[![React Native](https://img.shields.io/badge/react%20native-0.37.0-brightgreen.svg)](https://github.com/facebook/react-native)
-[![Sponsored](https://img.shields.io/badge/chilicorn-sponsored-brightgreen.svg)](http://spiceprogram.org/oss-sponsorship/)
-[![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/futurice/pepperoni-app-kit/blob/master/LICENSE)
+With so many events and attractions, we thought it might be useful to provide an easily accessible app for viewing the entire four-day schedule. In addition to viewing the full schedule, users may also choose to view events by their type: games, competitions, movies, live music, and seminars. Users can add their favorite events from any of these views to a personal schedule, allowing them to prioritize concurrent events and design their optimal ReplayFX experience.
 
-We :green_heart: building apps with React Native, because it helps us create high quality products for both major mobile platforms quickly and cost-effectively.
+# How to Use
 
-Getting started on a new app just takes too damn long, though. Most apps need the same basic building blocks and developer infrastructure, and we are bored of reinventing the wheel time and time again.
+Upon opening the ReplayFX App, the default tab ("Experience") displays a full list of events. Using the scrollable tab bar at the top, users may opt to narrow down the schedule by their favorites ("My Schedule"), popular events ("Featured"), games ("Play"), tournaments ("Compete"), movies ("Watch"), music ("Listen"), or seminars ("Learn"). All events within each tab are conveniently ordered by date and time, with the time and location showing.
 
-This Starter Kit reflects the best practices of React Native development we have discovered while building real-world applications for our customers. It is opinionated about tooling, patterns and development practices. It might not be a one-size-fits-all solution for everyone, but feel free to customize it for your needs, or just take inspiration from it.
+Clicking the circular icon to the bottom left of an event triggers a pop-up, which displays additional information, including a description of the selected event and corresponding image. Clicking on the gaming controller icon to the bottom right of each event adds or removes the event to the personal schedule. The gaming controller will turn from grey to purple when added, and back to grey when removed.
 
-React Native Starter Kit is a part of [Pepperoni](http://getpepperoni.com), a framework for kickstarting digital product development.
+Note the smaller gaming controller icon to the right of the "My Schedule" tab. The number next to the icon represents how many events have been saved to the personal schedule. This number will change automatically as users add or remove events to their favorites. Since this app features local storage, users may view the full schedule and current favorite events without an internet connection.
 
-## Contents
+# Who We Are
 
-:warning: **WORK IN PROGRESS** |
-:star: **COMING SOON**
+Our team of six came together during the second session of [Academy Pittsburgh](http://www.academypgh.com/), an intensive coding bootcamp. Using the full stack web development skills we attained over the course of twelve weeks, we created this app as a gift to the [Replay Foundation](http://replayfoundation.org/), a nonprofit organization that orchestrates pinball competitions worldwide under the brand name [PAPA](http://papa.org/).
 
-Not all of the below is yet fully implemented
+Meet our team:
+:star: [Kalene Csefalvay](http://www.academypgh.com/2016/11/23/kalene-csefalvay-academy-pittsburgh-session-2/)
+:star: [Cindy Green](http://www.academypgh.com/2016/11/23/cindy-green-academy-pittsburgh-session-2/)
+:star: [Sanjeev Padmanabhan](http://www.academypgh.com/2016/11/21/sanjeev-padmanabhan-academy-pittsburgh-session-2/)
+:star: [Caitlin Reed](http://www.academypgh.com/2016/11/23/caitlin-reed-academy-pittsburgh-session-2/)
+:star: [Heather Schall-Lucas](http://www.academypgh.com/2016/11/24/heather-schall-lucas-academy-pittsburgh-session-2/)
+:star: [Cray Thomas](http://www.academypgh.com/2016/11/21/cray-thomas-academy-pittsburgh-session-2/)
 
-### Application Blueprint
+# Development Workflow
 
-* Always up-to-date [React Native](https://facebook.github.io/react-native/) scaffolding
-* Modular and well-documented structure for application code
-* [Redux](http://redux.js.org/) and [ImmutableJS](https://facebook.github.io/immutable-js/) for safe and **Reasonaboutable**:tm: state management
-* [Redux Loop](https://github.com/raisemarketplace/redux-loop) for Elm-style controlled side effects
-* Redux-managed Navigators for Stack-based and Tabbed navigation with NavigationExperimental
-* Disk-persisted application state caching for offline support and snappy startup performance
-* Clean and testable service layer for interacting with RESTful APIs
-* :warning: Sample app to show how to wire it all together
-* :star: JSON Web Token authentication
-* :star: Multi-environment configuration (dev, staging, production) for iOS and Android
-* :star: Built-in error handling and customizable error screens
+We built the ReplayFX App over the last two weeks of our session at Academy Pittsburgh: the first week was spent scaffolding, developing, and testing functionality; the second week consisted of further testing, integrating, and optimizing the app before delivering the final product to the Replay Foundation.
 
-### Testing Setup
+Since our team was relatively new to React at the start of this project, we used the [Pepperoni](http://getpepperoni.com/) Starter Kit as the foundation for our app. Although we occasionally worked independently, we more often worked as a group so that our grasp on React improved through each stage of development.
 
-* [Jest](https://facebook.github.io/jest/) for unit testing application code and providing coverage information.
-* [Enzyme](https://github.com/airbnb/enzyme) and fully mocked React Native for unit testing UI components
-* Utilities for end-to-end integration testing Redux state, including side effects and asynchronous actions
+Knowing that ReplayFX is a high-volume conference with over 10,000 participants, we anticipated potential issues with wifi lag. For this reason, we opted to store data locally, which allows users to access the full schedule of events, as well as their personal favorites. Even without a connection, they will have the information they need to show up at the correct location on time. Local storage also eliminated the need for a user login.
 
-### Development & Deployment Infrastructure
+# Credits
 
-* [Auth0](https://auth0.com/) for ready-to-use login and signup screens, user authentication and identity management
-* [Bitrise.io](https://www.bitrise.io) configurations for Continuous Integration and beta app distribution
-* :warning: [Google Tag Manager](https://www.google.com/analytics/tag-manager/) analytics
+A special thanks to [Josh Gretz](https://github.com/jgretz) for introducing us to React/Redux, and our deepest gratitude to [John Lang](http://www.academypgh.com/facilitators-at-academy-pittsburgh/), who instructed us at Academy Pittsburgh and served as our mentor throughout the building process.
 
+# Code of Conduct
 
-### Roadmap
-
-* **TODO** :star: [Microsoft Code Push](http://microsoft.github.io/code-push) for instant JavaScript and images update
-* **TODO** Crash reporting
-* **TODO** Android and iOS UI Testing with Calaba.sh?
-* **TODO** Feature flags?
-
-## Getting started
-
-To build your own app on top of the Starter Kit, fork or mirror this repository. For serious use we recommend [mirroring using these instructions](https://help.github.com/articles/duplicating-a-repository/), since you can't make a fork of a public repository private on GitHub. To contribute to Starter Kit development or just playing around, forking is the way to go.
-
-First, give your application a name by running `./support/rename.sh YourAppName`.
-
-Once you have the code downloaded, follow the **[Setup guide](docs/SETUP.md)** to get started.
-
-## Development workflow
-
-After you have set up the project using above instructions, you can use your favorite IDE or text editor to write code, and run the application from the command line. Turn on React Native hot module reloading in the app developer menu to update your application as you code.
-
-To learn how to structure your application and use the Redux application architecture, read the **[Architecture guide](docs/ARCHITECTURE.md)** for more details.
-
-##### Start the application in iOS simulator
-```
-$ react-native run-ios
-```
-
-##### Start the application in Android simulator
-(If using the stock emulator, the emulator must be running)
-```
-$ react-native run-android
-```
-
-##### Run unit tests
-```
-$ npm test
-```
-
-##### Run tests every time code changes
-```
-$ npm run test:watch
-```
-
-##### Generate code coverage report
-```
-$ npm run coverage
-```
-
-Read the **[Testing guide](docs/TESTING.md)** for more information about writing tests.
-
-## Deployment
-
-Read the **[Deployment guide](docs/DEPLOYMENT.md)** to learn how to deploy the application to test devices, app stores, and how to use Code Push to push updates to your users immediately.
-
-## Contributing
-
-If you find any problems, please [open an issue](https://github.com/futurice/pepperoni-app-kit/issues/new) or submit a fix as a pull request.
-
-We welcome new features, but for large changes let's discuss first to make sure the changes can be accepted and integrated smoothly.
-
-## License
-
-[MIT License](LICENSE)
-
-## Credits
-
-This project was initially motivated by [Snowflake](https://github.com/bartonhammond/snowflake), a React Native boilerplate by Barton Hammond. It shares some features and design principles for Pepperoni, but it wasn't the right fit for our needs. At this time Snowflake is more mature, so if you like Pepperoni but didn't agree with something we are doing, you should check it out to see if it's a good fit for your app.
+Please be mindful of the [Code of Conduct](http://replayfx.org/code-of-conduct/), which holds all participants and sponsors accountable for adhering to an anti-harassment policy.
+1 Comment Collapse

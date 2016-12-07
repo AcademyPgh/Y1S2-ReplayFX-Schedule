@@ -4,10 +4,22 @@ const content_sections = (data, favorites, schedule) => {
   schedule.forEach((event) => {
     if (_.indexOf(favorites, event.id) > -1)
     {event.isFavorite = true;
-      event.type.push('Favorites');}
+      if (!_.some(event.replayEventTypes, (row) => {
+        return row.name === 'favorites';}
+      ))
+      {event.replayEventTypes.push({name: 'favorites'});
+      }
+    }
     else
-    {event.isFavorite = false;}
-
+    {
+      event.isFavorite = false;
+      _.remove(event.replayEventTypes, (row) => {
+        if (row.name === 'favorites')
+        {return true;}
+        else
+        {return false;}
+      });
+    }
     if (data === 'all') {
       if (!dataMap[event.date]) {
         dataMap[event.date] = [];
@@ -16,8 +28,8 @@ const content_sections = (data, favorites, schedule) => {
       dataMap[event.date].push(event);
     }
     else {
-      event.type.forEach((category) => {
-        if (category === data) {
+      event.replayEventTypes.forEach((category) => {
+        if (category.name === data) {
           if (!dataMap[event.date]) {
             dataMap[event.date] = [];
           }
@@ -26,7 +38,8 @@ const content_sections = (data, favorites, schedule) => {
       });
     }
   });
-
+  console.log('Here comes the dataMap');
+  console.log(dataMap);
   return dataMap;
 };
 
