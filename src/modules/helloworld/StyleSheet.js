@@ -141,7 +141,9 @@ const styles = StyleSheet.create({
 
   iconrowstyle: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    marginLeft: 10,
+    marginRight: 10
   },
 
   info: {
@@ -175,11 +177,11 @@ const styles = StyleSheet.create({
   },
   modalimage: {
     width: Dimensions.get('window').width,
-    height: Dimensions.get('window').width / 2,
+    height: Dimensions.get('window').width * .5625,
     resizeMode: 'contain',
-    borderWidth: 5,
-    borderColor: stylechoice.regtextcolor,
-    borderRadius: 25
+    borderWidth: 1,
+    borderColor: stylechoice.regbackground,
+    borderRadius: 10
 
     //textAlign: 'left'
     // height: 100
