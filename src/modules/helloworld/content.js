@@ -4,7 +4,8 @@ import {
   ListView,
   Alert,
   TouchableHighlight,
-  Modal
+  Modal,
+  Image
 } from 'react-native';
 import styles, {stylechoice} from './StyleSheet';
 import content_sections from './content_sections';
@@ -25,10 +26,12 @@ export default class Content extends Component {
       dataSource: ds.cloneWithRowsAndSections(content_sections(this.props.typeIs, this.props.favorites, this.props.baseSchedule)),
       modalVisible: false,
       modalTitle: '',
-      modalDescription: ''
+      modalDescription: '',
+      modalImage: ''
     };
     this.renderScheduleItem = this.renderScheduleItem.bind(this);
     this.setModalVisible = this.setModalVisible.bind(this);
+    this.renderInfoButton = this.renderInfoButton.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     const ds = new ListView.DataSource({
@@ -40,8 +43,24 @@ export default class Content extends Component {
     });
   }
 
-  setModalVisible(visible, title, description) {
-    this.setState({modalVisible: visible, modalTitle: title, modalDescription: description});
+  setModalVisible(visible, title, extendedDescription, image) {
+    this.setState({modalVisible: visible, modalTitle: title, modalDescription: extendedDescription, modalImage: image});
+  }
+
+  renderInfoButton(item) {
+    if (item.extendedDescription)
+    {return (
+  <TouchableHighlight onPress={() => {
+    this.setModalVisible(true, item.title, item.extendedDescription, item.image);
+  }}>
+    <View>
+      <Info_Icon/>
+    </View>
+  </TouchableHighlight>
+    );}
+    else
+    {return (<View/>);
+    }
   }
 
   renderScheduleItem(item) {
@@ -55,13 +74,7 @@ export default class Content extends Component {
         <Text animation='flipInY' delay={400} style={styles.description}>{item.description}</Text>
         <View style={styles.iconrowstyle}>
 
-        <TouchableHighlight onPress={() => {
-          this.setModalVisible(true, item.title, item.description);
-        }}>
-          <View>
-            <Info_Icon/>
-          </View>
-        </TouchableHighlight>
+      {this.renderInfoButton(item)}
 
         <TouchableHighlight onPress={() => {
           if (item.isFavorite)
@@ -103,6 +116,7 @@ export default class Content extends Component {
           <View style= {styles.innerContainer}>
             <Text>{this.state.modalTitle}</Text>
             <Text>{this.state.modalDescription}</Text>
+            <Image source={{uri: this.state.modalImage}} style={styles.logoimage}/>
             <TouchableHighlight onPress={() => {
               this.setModalVisible(!this.state.modalVisible);
             }}>

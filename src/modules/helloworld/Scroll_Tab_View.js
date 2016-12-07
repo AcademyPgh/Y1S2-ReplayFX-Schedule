@@ -55,7 +55,7 @@ export default class Scroll_Tab_View extends Component {
       this.setState({baseSchedule: results.data});
     //  console.log(results);
     });
-    //this.setState({baseSchedule: Schedule()})
+
   }
   addFavorite(id)
   {
