@@ -23,13 +23,13 @@ export default class Scroll_Tab_View extends Component {
       //baseSchedule: ex_schedule(),
       tabs:
       [{name: 'Experience', value: 'all'},
-      {name: 'My Schedule', value: 'Favorites'},
-      {name: 'Featured', value: 'Featured'},
-      {name: 'Play', value: 'Games'},
-      {name: 'Compete', value: 'Competition'},
-      {name: 'Watch', value: 'Movies'},
-      {name: 'Listen', value: 'Music'},
-      {name: 'Learn', value: 'Seminar'}
+      {name: 'My Schedule', value: 'favorites'},
+      {name: 'Featured', value: 'featured'},
+      {name: 'Play', value: 'games'},
+      {name: 'Compete', value: 'competition'},
+      {name: 'Watch', value: 'movies'},
+      {name: 'Listen', value: 'music'},
+      {name: 'Learn', value: 'seminar'}
       ],
       baseSchedule: []
     };
@@ -37,24 +37,25 @@ export default class Scroll_Tab_View extends Component {
     this.addFavorite = this.addFavorite.bind(this);
     this.removeFavorite = this.removeFavorite.bind(this);
     this.loadSchedule = this.loadSchedule.bind(this);
-    //this.loadFavorites = this.loadFavorites.bind(this);
+  //  this.loadFavorites = this.loadFavorites.bind(this);
 
     this.loadSchedule();
-    // this.loadFavorites();
+    //this.loadFavorites();
   }
   // loadFavorites() {
   //   AsyncStorage.getItem('favorites', (err, value) => {
   //     if (value !== null) {
-  //       this.setState({favories: JSON.parse(value)});
+  //       this.setState({favorites: JSON.parse(value)});
   //     }
   //   });
   // }
   loadSchedule() {
-    console.log("loading schedule");
+    //console.log('loading schedule');
     Schedule().then((results) => {
       this.setState({baseSchedule: results.data});
-      console.log(results);
+    //  console.log(results);
     });
+
     //this.setState({baseSchedule: Schedule()})
   }
   addFavorite(id)

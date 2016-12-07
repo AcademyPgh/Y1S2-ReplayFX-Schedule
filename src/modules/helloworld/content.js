@@ -25,7 +25,8 @@ export default class Content extends Component {
       dataSource: ds.cloneWithRowsAndSections(content_sections(this.props.typeIs, this.props.favorites, this.props.baseSchedule)),
       modalVisible: false,
       modalTitle: '',
-      modalDescription: ''
+      modalLongDescription: '',
+      modalImageUrl: ''
     };
     this.renderScheduleItem = this.renderScheduleItem.bind(this);
     this.setModalVisible = this.setModalVisible.bind(this);
@@ -50,8 +51,9 @@ export default class Content extends Component {
 
       <View style = {styles.info}>
         <Text animation='flipInY' delay={400} style={styles.title}>{item.title}</Text>
-        <Text animation='flipInY' delay={400} style={styles.datetime}> {item.starttime} - {item.endtime}</Text>
-        <Text animation='flipInY' delay={400} style={styles.description}>Location</Text>
+        <Text animation='flipInY' delay={400} style={styles.datetime}> {item.startTime} - {item.endTime}</Text>
+        <Text animation='flipInY' delay={400} style={styles.description}>{item.location}</Text>
+        <Text animation='flipInY' delay={400} style={styles.description}>{item.description}</Text>
         <View style={styles.iconrowstyle}>
 
         <TouchableHighlight onPress={() => {
