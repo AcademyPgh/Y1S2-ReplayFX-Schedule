@@ -50,8 +50,9 @@ export default class Scroll_Tab_View extends Component {
     });
   }
   loadSchedule() {
-    this.loadSchedule();
-    this.loadFavorites();
+    Schedule().then((results) => {
+      this.setState({baseSchedule: results.data});
+    });
   }
 
   addFavorite(id)

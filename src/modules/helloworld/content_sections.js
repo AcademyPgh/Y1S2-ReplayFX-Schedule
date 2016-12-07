@@ -4,7 +4,6 @@ const content_sections = (data, favorites, schedule) => {
   schedule.forEach((event) => {
     if (_.indexOf(favorites, event.id) > -1)
     {event.isFavorite = true;
-
       if (!_.some(event.replayEventTypes, (row) => {
         return row.name === 'favorites';}
       ))
