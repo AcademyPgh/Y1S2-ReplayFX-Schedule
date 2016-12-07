@@ -38,8 +38,8 @@ const content_sections = (data, favorites, schedule) => {
       });
     }
   });
-  console.log('Here comes the dataMap');
-  console.log(dataMap);
+//  console.log('Here comes the dataMap');
+//  console.log(dataMap);
   return dataMap;
 };
 
