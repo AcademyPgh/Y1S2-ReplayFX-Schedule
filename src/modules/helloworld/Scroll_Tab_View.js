@@ -21,16 +21,17 @@ export default class Scroll_Tab_View extends Component {
     this.state = {
       favorites: [],
       //baseSchedule: ex_schedule(),
-      tabs:
-      [{name: 'Experience', value: 'all'},
-      {name: 'My Schedule', value: 'favorites'},
-      {name: 'Featured', value: 'featured'},
-      {name: 'Play', value: 'games'},
-      {name: 'Compete', value: 'competition'},
-      {name: 'Watch', value: 'movies'},
-      {name: 'Listen', value: 'music'},
-      {name: 'Learn', value: 'seminar'}
+      tabs: [
+        {name: 'Experience', value: 'all'},
+        {name: 'My Schedule', value: 'favorites'}
       ],
+      // {name: 'Featured', value: 'featured'},
+      // {name: 'Play', value: 'games'},
+      // {name: 'Compete', value: 'competition'},
+      // {name: 'Watch', value: 'movies'},
+      // {name: 'Listen', value: 'music'},
+      // {name: 'Learn', value: 'seminar'}
+      // ],
       baseSchedule: []
     };
 
@@ -38,6 +39,7 @@ export default class Scroll_Tab_View extends Component {
     this.removeFavorite = this.removeFavorite.bind(this);
     this.loadSchedule = this.loadSchedule.bind(this);
     this.loadFavorites = this.loadFavorites.bind(this);
+    this.loadTabs =
 
     this.loadSchedule();
     this.loadFavorites();

@@ -15,7 +15,7 @@ export default class Blink extends Component {
 
         <Image source={require('../images/replay-fx-logo.png')} style={styles.logoimage}/>
       </View>
-      <Text style= {styles.academy}>App Made by Academy Pittsburgh</Text>
+      <Text style= {styles.academy}>App Built by Academy Pittsburgh</Text>
         <Scroll_Tab_View/>
             </View>
     );
