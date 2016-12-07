@@ -127,7 +127,7 @@ export default class Content extends Component {
             <Text style={styles.modaltitle}>{this.state.modalTitle}</Text>
             <Text style={styles.modaldatetime}>{this.state.modalStartTime} - {this.state.modalEndTime}</Text>
             <Text style ={styles.modaldatetime}>{this.state.modalLocation}</Text>
-            <View style ={{alignItems: 'center'}}> 
+            <View style ={{alignItems: 'center'}}>
                 <Image source={{uri: this.state.modalImage}} style={styles.modalimage}/>
            </View>
             <Text style = {styles.modaldescription}>{this.state.modalDescription}</Text>
@@ -135,7 +135,8 @@ export default class Content extends Component {
             <TouchableHighlight onPress={() => {
               this.setModalVisible(!this.state.modalVisible);
             }}>
-              <Text style= {styles.title}>Close</Text>
+              <Text style= {styles.title}><Ionicons name= 'ios-close-circle' size={36}
+                color= {stylechoice.accentcolor} /></Text>
             </TouchableHighlight>
           </View>
           </View>
