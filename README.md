@@ -32,7 +32,7 @@ Knowing that ReplayFX is a high-volume conference with over 10,000 participants,
 
 # Credits
 
-A special thanks to [Josh Gretz](https://github.com/jgretz) for introducing us to React/Redux, and our deepest gratitude to [John Lang](http://www.academypgh.com/facilitators-at-academy-pittsburgh/), who instructed us at Academy Pittsburgh and served as our mentor throughout the building process.
+A special thanks to [Josh Gretz](https://github.com/jgretz) for introducing us to React/Redux, and our deepest gratitude to [John Lange](http://www.academypgh.com/facilitators-at-academy-pittsburgh/), who instructed us at Academy Pittsburgh and served as our mentor throughout the building process.
 
 # Code of Conduct
 
