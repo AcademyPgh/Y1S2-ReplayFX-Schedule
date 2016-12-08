@@ -124,7 +124,10 @@ export default class Content extends Component {
           animationType={'slide'}
           transparent={false}
           visible={this.state.modalVisible}
-          onRequestClose ={() => {Alert.alert('Modal has been closed!');}}>
+          onRequestClose ={() => {
+            Alert.alert('Modal has been closed!');
+            this.setModalVisible(!this.state.modalVisible);
+          }}>
           <View style= {styles.innerContainer}>
             <Text style={styles.modaltitle}>{this.state.modalTitle}</Text>
             <Text style={styles.modaldatetime}>{this.state.modalStartTime} - {this.state.modalEndTime}</Text>
