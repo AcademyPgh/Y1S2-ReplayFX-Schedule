@@ -84,7 +84,7 @@ export default class Content extends Component {
         <Text animation='flipInY' delay={400} style={styles.datetime}> {item.startTime} - {item.endTime}</Text>
         <Text animation='flipInY' delay={400} style={styles.datetime}>{item.location}</Text>
         <Text animation='flipInY' delay={400} style={styles.description}>{item.description}</Text>
-        <View style={styles.iconrowstyle}>
+      <View style={styles.iconrowstyle}>
 
       {this.renderInfoButton(item)}
 

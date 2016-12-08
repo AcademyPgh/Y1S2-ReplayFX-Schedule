@@ -4,7 +4,8 @@ import styles from './StyleSheet';
 import {
   Text,
   View,
-  Image
+  Image,
+  BackAndroid
 } from 'react-native';
 
 //Blink is our main component that renders all of our other components
@@ -22,6 +23,7 @@ export default class Blink extends Component {
         {/* Renders the swipeable nav bar */}
         <Scroll_Tab_View/>
             {/* Shows our "main content" */}
+            {BackAndroid.exitApp(0)}
             </View>
     );
   }
