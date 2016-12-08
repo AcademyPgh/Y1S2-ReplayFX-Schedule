@@ -139,13 +139,6 @@ const styles = StyleSheet.create({
     marginRight: 10
   },
 
-  iconrowstyle: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginLeft: 10,
-    marginRight: 10
-  },
-
   info: {
     borderColor: stylechoice.bordercolor,
     borderBottomWidth: 2,
@@ -158,9 +151,29 @@ const styles = StyleSheet.create({
   },
 
   infoIcon: {
-    paddingTop: 1,
-    paddingBottom: 0
+    zIndex: 1,
+    paddingTop: 3,
+    paddingBottom: 3,
+    paddingRight: 3,
+    paddingLeft: 3
+  },
 
+  gamecontroller: {
+    fontSize: 14,
+    color: stylechoice.accentcolor,
+    zIndex: 1,
+    paddingTop: 3,
+    paddingBottom: 3,
+    paddingRight: 3,
+    paddingLeft: 3
+
+  },
+
+  iconrowstyle: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginLeft: 10,
+    marginRight: 10
   },
 
   academy: {
@@ -182,11 +195,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: stylechoice.regbackground,
     borderRadius: 10
-
-    //textAlign: 'left'
-    // height: 100
-  //  alignItems: 'center',
   },
+
   tab: {
     height: 40,
     alignItems: 'center',
@@ -194,6 +204,7 @@ const styles = StyleSheet.create({
     paddingLeft: 18,
     paddingRight: 18
   },
+
   tabcontainer: {
     height: 41,
     borderTopWidth: 2,
@@ -207,11 +218,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
 
-  gamecontroller: {
-    fontSize: 14,
-    color: stylechoice.accentcolor
-  },
-
   tabUnderline: {
 
     position: 'absolute',
@@ -220,6 +226,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     zIndex: -1
   },
+
   center: {
     alignItems: 'center'
   }

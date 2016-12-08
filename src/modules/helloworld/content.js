@@ -13,7 +13,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 const Info_Icon = require('../utils/Info_Icon');
 import {createAnimatableComponent, View, Text} from 'react-native-animatable';
 
-
 export default class Content extends Component {
   constructor(props) {
     super(props);
@@ -84,7 +83,7 @@ export default class Content extends Component {
         <Text animation='flipInY' delay={400} style={styles.datetime}> {item.startTime} - {item.endTime}</Text>
         <Text animation='flipInY' delay={400} style={styles.datetime}>{item.location}</Text>
         <Text animation='flipInY' delay={400} style={styles.description}>{item.description}</Text>
-        <View style={styles.iconrowstyle}>
+      <View style={styles.iconrowstyle}>
 
       {this.renderInfoButton(item)}
 

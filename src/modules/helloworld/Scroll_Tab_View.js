@@ -53,9 +53,14 @@ export default class Scroll_Tab_View extends Component {
   loadSchedule() {
     Schedule().then((results) => {
       this.setState({baseSchedule: results.data});
-
+      AsyncStorage.getItem('all', (err, value) => {
+        if (value !== null) {
+          this.setState({all: JSON.parse(value)});
+        }
+      });
     });
 
+//AsyncStorage.setItem('baseSchedule', JSON.stringify(results.data));
   }
   //another axios call
   loadTypes() {
