@@ -10,6 +10,16 @@ import {
 
 //Blink is our main component that renders all of our other components
 export default class Blink extends Component {
+  constructor(props) {
+    super(props);
+    this.backButton = this.backButton.bind(this);
+    this.backButton();
+  }
+  backButton() {
+    BackAndroid.addEventListener('hardwareBackPress', () => {
+      BackAndroid.exitApp(0);
+    });
+  }
   render() {
     return (
       // Container that just centers our logo
@@ -23,7 +33,7 @@ export default class Blink extends Component {
         {/* Renders the swipeable nav bar */}
         <Scroll_Tab_View/>
             {/* Shows our "main content" */}
-            {BackAndroid.exitApp(0)}
+
             </View>
     );
   }
