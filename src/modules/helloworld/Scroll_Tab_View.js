@@ -36,13 +36,13 @@ export default class Scroll_Tab_View extends Component {
     this.loadTypes = this.loadTypes.bind(this);
     this.loadLocalSchedule = this.loadLocalSchedule.bind(this);
     this.loadLocalTypes = this.loadLocalTypes.bind(this);
+
     //callbacks
+    this.loadTypes();
+    //this.loadLocalTypes();
     this.loadLocalSchedule();
     this.loadSchedule();
     this.loadFavorites();
-    this.loadTypes();
-    //this.loadLocalTypes();
-
   }
 
   //function that loads favorites from local storage
@@ -53,7 +53,7 @@ export default class Scroll_Tab_View extends Component {
       }
     });
   }
-  //setting data from axios call
+  //Axios call that gives baseSchedule its state and stores the data
   loadSchedule() {
     Schedule().then((results) => {
       this.setState({baseSchedule: results.data});
@@ -67,18 +67,21 @@ export default class Scroll_Tab_View extends Component {
       }
     });
   }
-  //another axios call
+  //Axios call that receives category types and stores the data
   loadTypes() {
     Types().then((results) => {
       this.setState({tabs: [...this.state.tabs, ...results.data]});
+      console.log(results.data);
       AsyncStorage.setItem('types', JSON.stringify(results.data));
     });
   }
 
   loadLocalTypes() {
+  //  AsyncStorage.removeItem('types');
     AsyncStorage.getItem('types', (err, value) => {
       if (value !== null) {
         this.setState({tabs: JSON.parse(value)});
+        //console.log(value);
       }
     });
   }

@@ -108,7 +108,8 @@ const styles = StyleSheet.create({
   home: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: stylechoice.regbackground
+    backgroundColor: stylechoice.regbackground,
+    marginTop: 10
   },
   slide: {
     justifyContent: 'center',
