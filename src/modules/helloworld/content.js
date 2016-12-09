@@ -5,7 +5,8 @@ import {
   Alert,
   TouchableHighlight,
   Modal,
-  Image
+  Image,
+  ScrollView
 } from 'react-native';
 import styles, {stylechoice} from './StyleSheet';
 import content_sections from './content_sections';
@@ -133,10 +134,12 @@ export default class Content extends Component {
             <Text style={styles.modaltitle}>{this.state.modalTitle}</Text>
             <Text style={styles.modaldatetime}>{this.state.modalStartTime} - {this.state.modalEndTime}</Text>
             <Text style ={styles.modaldatetime}>{this.state.modalLocation}</Text>
+            <ScrollView>
             <View style ={{alignItems: 'center'}}>
                 <Image source={{uri: this.state.modalImage}} style={styles.modalimage}/>
            </View>
             <Text style = {styles.modaldescription}>{this.state.modalDescription}</Text>
+          </ScrollView>
             <View style ={styles.center}>
             <TouchableHighlight onPress={() => {
               this.setModalVisible(!this.state.modalVisible);
