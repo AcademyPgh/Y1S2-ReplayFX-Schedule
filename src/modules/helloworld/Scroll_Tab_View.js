@@ -34,15 +34,11 @@ export default class Scroll_Tab_View extends Component {
     this.loadSchedule = this.loadSchedule.bind(this);
     this.loadFavorites = this.loadFavorites.bind(this);
     this.loadTypes = this.loadTypes.bind(this);
-    this.loadLocalSchedule = this.loadLocalSchedule.bind(this);
-    this.loadLocalTypes = this.loadLocalTypes.bind(this);
+
     //callbacks
-    this.loadLocalSchedule();
     this.loadSchedule();
     this.loadFavorites();
     this.loadTypes();
-    //this.loadLocalTypes();
-
   }
 
   //function that loads favorites from local storage
@@ -57,29 +53,19 @@ export default class Scroll_Tab_View extends Component {
   loadSchedule() {
     Schedule().then((results) => {
       this.setState({baseSchedule: results.data});
-      AsyncStorage.setItem('all', JSON.stringify(results.data));
+      AsyncStorage.getItem('all', (err, value) => {
+        if (value !== null) {
+          this.setState({all: JSON.parse(value)});
+        }
+      });
     });
-  }
-  loadLocalSchedule() {
-    AsyncStorage.getItem('all', (err, value) => {
-      if (value !== null) {
-        this.setState({baseSchedule: JSON.parse(value)});
-      }
-    });
+
+//AsyncStorage.setItem('baseSchedule', JSON.stringify(results.data));
   }
   //another axios call
   loadTypes() {
     Types().then((results) => {
       this.setState({tabs: [...this.state.tabs, ...results.data]});
-      AsyncStorage.setItem('types', JSON.stringify(results.data));
-    });
-  }
-
-  loadLocalTypes() {
-    AsyncStorage.getItem('types', (err, value) => {
-      if (value !== null) {
-        this.setState({tabs: JSON.parse(value)});
-      }
     });
   }
 
@@ -100,7 +86,6 @@ export default class Scroll_Tab_View extends Component {
   }
 
   render() {
-
     return (
       // This returns the tabs from the array so we can see them on the screen!
         <ScrollableTabView renderTabBar = {() => <NewTabBar favoritesCount= {this.state.favorites.length}/>} >

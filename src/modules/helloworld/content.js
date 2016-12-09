@@ -12,6 +12,7 @@ import content_sections from './content_sections';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Info_Icon from '../utils/Info_Icon';
 import CloseIcon from '../utils/closeIcon';
+import Accordion from 'react-native-collapsible/Accordion';
 import {createAnimatableComponent, View, Text} from 'react-native-animatable';
 
 export default class Content extends Component {
@@ -37,6 +38,10 @@ export default class Content extends Component {
     this.renderScheduleItem = this.renderScheduleItem.bind(this);
     this.setModalVisible = this.setModalVisible.bind(this);
     this.renderInfoButton = this.renderInfoButton.bind(this);
+    this.timeConverter = this.timeConverter.bind(this);
+
+    //   let starttime = this.timeConverter(item.startTime);
+    // let endtime = this.timeConverter(item.endTime);
   }
   componentWillReceiveProps(nextProps) {
     const ds = new ListView.DataSource({
@@ -59,11 +64,29 @@ export default class Content extends Component {
       modalImage: image});
   }
 
+  timeConverter(time) {
+    let times = time.split(':'); // convert to array
+
+  // fetch
+    let hours = Number(times[0]);
+    let minutes = Number(times[1]);
+
+  // calculate
+    var timeValue = '' + ((hours > 12) ? hours - 12 : hours);  // get hours
+    timeValue += (minutes < 10) ? ':0' + minutes : ':' + minutes;  // get minutes
+    timeValue += (hours >= 12) ? ' PM' : ' AM';
+
+    return timeValue; // get AM/PM
+  }
+
   renderInfoButton(item) {
+    let mstarttime = this.timeConverter(item.startTime);
+    let mendtime = this.timeConverter(item.endTime);
+
     if (item.extendedDescription || item.image)
     {return (
   <TouchableHighlight onPress={() => {
-    this.setModalVisible(true, item.title, item.startTime, item.endTime, item.location, item.extendedDescription, item.image);
+    this.setModalVisible(true, item.title, mstarttime, mendtime, item.location, item.extendedDescription, item.image);
   }}>
     <View>
       <Info_Icon/>
@@ -76,12 +99,14 @@ export default class Content extends Component {
   }
 
   renderScheduleItem(item) {
+    let starttime = this.timeConverter(item.startTime);
+    let endtime = this.timeConverter(item.endTime);
 
     return (
 
       <View style = {styles.info}>
         <Text animation='flipInY' delay={400} style={styles.title}>{item.title}</Text>
-        <Text animation='flipInY' delay={400} style={styles.datetime}> {item.startTime} - {item.endTime}</Text>
+        <Text animation='flipInY' delay={400} style={styles.datetime}> {starttime} - {endtime}</Text>
         <Text animation='flipInY' delay={400} style={styles.datetime}>{item.location}</Text>
         <Text animation='flipInY' delay={400} style={styles.description}>{item.description}</Text>
       <View style={styles.iconrowstyle}>
@@ -152,6 +177,11 @@ export default class Content extends Component {
           renderRow={this.renderScheduleItem}
           renderSectionHeader={this.renderSectionHeader}
         />
+        {/* <Accordion
+          sections={this.state.dataSource}
+          renderHeader={this.renderSectionHeader}
+          renderContent={this.renderScheduleItem}
+        /> */}
       </View>
     );
   }
