@@ -24,8 +24,6 @@ export default class Scroll_Tab_View extends Component {
         {DisplayName: 'Experience', Name: 'all'},
         {DisplayName: 'My Schedule', Name: 'favorites'}
       ],
-      tabs: [],
-
       baseSchedule: []
     };
 
@@ -39,8 +37,8 @@ export default class Scroll_Tab_View extends Component {
     this.loadLocalTypes = this.loadLocalTypes.bind(this);
 
     //callbacks
-    setTimeout(this.loadTypes, 2000);
-    setTimeout(this.loadLocalTypes, 1000);
+    setTimeout(this.loadLocalTypes, 1500);
+    setTimeout(this.loadTypes, 2500);
     this.loadLocalSchedule();
     this.loadSchedule();
     this.loadFavorites();
@@ -81,7 +79,7 @@ export default class Scroll_Tab_View extends Component {
    //AsyncStorage.removeItem('types');
     AsyncStorage.getItem('types', (err, value) => {
       if (value !== null) {
-        this.setState({tabs: [...this.state.baseTabs, ...JSON.parse(value)]});
+        this.setState({baseTabs: [...this.state.baseTabs, ...JSON.parse(value)]});
 
       }
     });
@@ -108,7 +106,7 @@ export default class Scroll_Tab_View extends Component {
     return (
       // This returns the tabs from the array so we can see them on the screen!
         <ScrollableTabView renderTabBar = {() => <NewTabBar favoritesCount= {this.state.favorites.length}/>} >
-          {this.state.tabs.map((item, index) =>
+          {this.state.baseTabs.map((item, index) =>
           {return (<View style={styles.slide} tabLabel= {item.DisplayName} key = {index} >
             {/* passing the state of the length of the favorites so it's displayed in the
             'my schedule' section on the swipeable nav bar */}
