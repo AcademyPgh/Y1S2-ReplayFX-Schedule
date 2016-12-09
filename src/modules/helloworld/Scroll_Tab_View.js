@@ -73,8 +73,6 @@ export default class Scroll_Tab_View extends Component {
   loadTypes() {
     Types().then((results) => {
       this.setState({tabs: [...this.state.baseTabs, ...results.data]});
-      console.log(results.data);
-
       AsyncStorage.setItem('types', JSON.stringify(results.data));
     });
   }
@@ -82,8 +80,6 @@ export default class Scroll_Tab_View extends Component {
   loadLocalTypes() {
    //AsyncStorage.removeItem('types');
     AsyncStorage.getItem('types', (err, value) => {
-      console.log('Lets Begin');
-      console.log(value);
       if (value !== null) {
         this.setState({tabs: [...this.state.baseTabs, ...JSON.parse(value)]});
 
