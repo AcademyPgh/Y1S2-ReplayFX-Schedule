@@ -15,7 +15,6 @@ export default class Blink extends Component {
     this.backButton = this.backButton.bind(this);
     this.backButton();
   }
-
   backButton() {
     BackAndroid.addEventListener('hardwareBackPress', () => {
       BackAndroid.exitApp(0);
@@ -35,7 +34,7 @@ export default class Blink extends Component {
         <Scroll_Tab_View/>
             {/* Shows our "main content" */}
 
-          </View>
+            </View>
     );
   }
 }

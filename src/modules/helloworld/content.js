@@ -5,14 +5,15 @@ import {
   Alert,
   TouchableHighlight,
   Modal,
-  Image
+  Image,
+  ScrollView
 } from 'react-native';
 import styles, {stylechoice} from './StyleSheet';
 import content_sections from './content_sections';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Info_Icon from '../utils/Info_Icon';
 import CloseIcon from '../utils/closeIcon';
-import Accordion from 'react-native-collapsible/Accordion';
+
 import {createAnimatableComponent, View, Text} from 'react-native-animatable';
 
 export default class Content extends Component {
@@ -24,7 +25,6 @@ export default class Content extends Component {
       sectionHeaderHasChanged: (s1, s2) => s1 !== s2
     });
 
-    //
     this.state = {
       dataSource: ds.cloneWithRowsAndSections(content_sections(this.props.typeIs, this.props.favorites, this.props.baseSchedule)),
       modalVisible: false,
@@ -40,8 +40,6 @@ export default class Content extends Component {
     this.renderInfoButton = this.renderInfoButton.bind(this);
     this.timeConverter = this.timeConverter.bind(this);
 
-    //   let starttime = this.timeConverter(item.startTime);
-    // let endtime = this.timeConverter(item.endTime);
   }
   componentWillReceiveProps(nextProps) {
     const ds = new ListView.DataSource({
@@ -150,17 +148,19 @@ export default class Content extends Component {
           transparent={false}
           visible={this.state.modalVisible}
           onRequestClose ={() => {
-            Alert.alert('Modal has been closed!');
+            //Alert.alert('Modal has been closed!');
             this.setModalVisible(!this.state.modalVisible);
           }}>
           <View style= {styles.innerContainer}>
             <Text style={styles.modaltitle}>{this.state.modalTitle}</Text>
             <Text style={styles.modaldatetime}>{this.state.modalStartTime} - {this.state.modalEndTime}</Text>
             <Text style ={styles.modaldatetime}>{this.state.modalLocation}</Text>
+            <ScrollView>
             <View style ={{alignItems: 'center'}}>
                 <Image source={{uri: this.state.modalImage}} style={styles.modalimage}/>
            </View>
             <Text style = {styles.modaldescription}>{this.state.modalDescription}</Text>
+          </ScrollView>
             <View style ={styles.center}>
             <TouchableHighlight onPress={() => {
               this.setModalVisible(!this.state.modalVisible);
@@ -170,18 +170,13 @@ export default class Content extends Component {
           </View>
           </View>
         </Modal>
-
         <ListView
           styles={styles.container}
           dataSource={this.state.dataSource}
           renderRow={this.renderScheduleItem}
           renderSectionHeader={this.renderSectionHeader}
         />
-        {/* <Accordion
-          sections={this.state.dataSource}
-          renderHeader={this.renderSectionHeader}
-          renderContent={this.renderScheduleItem}
-        /> */}
+
       </View>
     );
   }
