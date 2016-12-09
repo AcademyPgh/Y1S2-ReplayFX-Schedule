@@ -19,11 +19,12 @@ export default class Scroll_Tab_View extends Component {
       //this array gets filled when people start "starring" their schedule
       favorites: [],
       //Array of types of events that will become the names of the tabs
-      tabs: [
+      baseTabs: [
         //hard-coded
         {DisplayName: 'Experience', Name: 'all'},
         {DisplayName: 'My Schedule', Name: 'favorites'}
       ],
+      tabs: [],
 
       baseSchedule: []
     };
@@ -34,11 +35,15 @@ export default class Scroll_Tab_View extends Component {
     this.loadSchedule = this.loadSchedule.bind(this);
     this.loadFavorites = this.loadFavorites.bind(this);
     this.loadTypes = this.loadTypes.bind(this);
+    this.loadLocalSchedule = this.loadLocalSchedule.bind(this);
+    this.loadLocalTypes = this.loadLocalTypes.bind(this);
 
     //callbacks
+    setTimeout(this.loadTypes, 2000);
+    setTimeout(this.loadLocalTypes, 1000);
+    this.loadLocalSchedule();
     this.loadSchedule();
     this.loadFavorites();
-    this.loadTypes();
   }
 
   //function that loads favorites from local storage
@@ -49,17 +54,36 @@ export default class Scroll_Tab_View extends Component {
       }
     });
   }
-  //setting data from axios call
+  //Axios call that gives baseSchedule its state and stores the data
   loadSchedule() {
     Schedule().then((results) => {
       this.setState({baseSchedule: results.data});
+      AsyncStorage.setItem('all', JSON.stringify(results.data));
     });
-
   }
-  //another axios call
+  loadLocalSchedule() {
+    AsyncStorage.getItem('all', (err, value) => {
+      if (value !== null) {
+        this.setState({baseSchedule: JSON.parse(value)});
+      }
+    });
+  }
+
+  //Axios call that receives category types and stores the data
   loadTypes() {
     Types().then((results) => {
-      this.setState({tabs: [...this.state.tabs, ...results.data]});
+      this.setState({tabs: [...this.state.baseTabs, ...results.data]});
+      AsyncStorage.setItem('types', JSON.stringify(results.data));
+    });
+  }
+
+  loadLocalTypes() {
+   //AsyncStorage.removeItem('types');
+    AsyncStorage.getItem('types', (err, value) => {
+      if (value !== null) {
+        this.setState({tabs: [...this.state.baseTabs, ...JSON.parse(value)]});
+
+      }
     });
   }
 
