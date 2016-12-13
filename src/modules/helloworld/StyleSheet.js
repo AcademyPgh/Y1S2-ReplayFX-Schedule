@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
   },
 
   gamecontroller: {
-    fontSize: 14,
+    fontSize: 16,
     color: stylechoice.accentcolor,
     zIndex: 1,
     paddingTop: 3,

@@ -6,13 +6,17 @@ import {
   TouchableHighlight,
   Modal,
   Image,
-  ScrollView
+  ScrollView,
+  AppState,
+  Platform
 } from 'react-native';
 import styles, {stylechoice} from './StyleSheet';
 import content_sections from './content_sections';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Info_Icon from '../utils/Info_Icon';
 import CloseIcon from '../utils/closeIcon';
+import PushController from './PushController';
+import PushNotification from 'react-native-push-notification';
 //import Collapsible from 'react-native-collapsible';
 //import Accordion from 'react-native-collapsible/Accordion';
 import {createAnimatableComponent, View, Text} from 'react-native-animatable';
@@ -34,13 +38,14 @@ export default class Content extends Component {
       modalImage: '',
       modalStartTime: '',
       modalEndTime: '',
-      modalLocation: ''
+      modalLocation: '',
+      seconds: 5
     };
     this.renderScheduleItem = this.renderScheduleItem.bind(this);
     this.setModalVisible = this.setModalVisible.bind(this);
     this.renderInfoButton = this.renderInfoButton.bind(this);
     this.timeConverter = this.timeConverter.bind(this);
-
+    this.handleAppStateChange = this.handleAppStateChange.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     const ds = new ListView.DataSource({
@@ -48,8 +53,27 @@ export default class Content extends Component {
       sectionHeaderHasChanged: (s1, s2) => s1 !== s2
     });
     this.setState({
-      dataSource: ds.cloneWithRowsAndSections(content_sections(nextProps.typeIs, nextProps.favorites, nextProps.baseSchedule))
+      dataSource: ds.cloneWithRowsAndSections(content_sections(nextProps.typeIs,
+                  nextProps.favorites, nextProps.baseSchedule))
     });
+  }
+  componentDidMount() {
+    AppState.addEventListener('change', this.handleAppStateChange);
+  }
+  componentWillUnmount() {
+    AppState.removeEventListener('change', this.handleAppStateChange);
+  }
+  handleAppStateChange(appState) {
+    if (appState === 'background') {
+      let date = new Date(Date.now() + (this.state.seconds * 1000));
+      if (Platform.OS === 'ios') {
+        date = date.toISOString();
+      }
+      PushNotification.localNotificationSchedule({
+        message: 'My Notification Message',
+        date
+      });
+    }
   }
 
   setModalVisible(visible, title, startTime, endTime, location, extendedDescription, image) {
@@ -174,6 +198,7 @@ export default class Content extends Component {
           renderRow={this.renderScheduleItem}
           renderSectionHeader={this.renderSectionHeader}
       />
+      <PushController/>
       </View>
     );
   }

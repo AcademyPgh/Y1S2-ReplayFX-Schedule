@@ -150,7 +150,7 @@ name === 'My Schedule' ? <Ionicons name= 'ios-game-controller-b' style = {styles
       <View style={[styles.tab, this.props.tabStyle]}>
 
         <Text style={[{color: textColor}, {fontFamily: stylechoice.fontName}]}>
-          {name} <Text animation= 'flash' delay={400} iterationCount= {3}>
+          {name} <Text animation = 'flash' delay={400} iterationCount= {3} >
               {this.starCount(name)}
                </Text>
         </Text>

@@ -37,8 +37,8 @@ export default class Scroll_Tab_View extends Component {
     this.loadLocalTypes = this.loadLocalTypes.bind(this);
 
     //callbacks
-    setTimeout(this.loadLocalTypes, 1500);
-    setTimeout(this.loadTypes, 2500);
+    setTimeout(this.loadLocalTypes, 1200);
+    setTimeout(this.loadTypes, 2200);
     this.loadLocalSchedule();
     this.loadSchedule();
     this.loadFavorites();
@@ -80,7 +80,6 @@ export default class Scroll_Tab_View extends Component {
     AsyncStorage.getItem('types', (err, value) => {
       if (value !== null) {
         this.setState({baseTabs: [...this.state.baseTabs, ...JSON.parse(value)]});
-
       }
     });
   }
