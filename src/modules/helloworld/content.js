@@ -47,6 +47,9 @@ export default class Content extends Component {
     this.timeConverter = this.timeConverter.bind(this);
     this.handleAppStateChange = this.handleAppStateChange.bind(this);
   }
+  componentDidMount() {
+    AppState.addEventListener('change', this.handleAppStateChange);
+  }
   componentWillReceiveProps(nextProps) {
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2,
@@ -56,9 +59,6 @@ export default class Content extends Component {
       dataSource: ds.cloneWithRowsAndSections(content_sections(nextProps.typeIs,
                   nextProps.favorites, nextProps.baseSchedule))
     });
-  }
-  componentDidMount() {
-    AppState.addEventListener('change', this.handleAppStateChange);
   }
   componentWillUnmount() {
     AppState.removeEventListener('change', this.handleAppStateChange);
