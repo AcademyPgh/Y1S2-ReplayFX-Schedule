@@ -65,13 +65,14 @@ export default class Content extends Component {
   }
   handleAppStateChange(appState) {
     if (appState === 'background') {
-      let date = new Date(Date.now() + (this.state.seconds * 1000));
-      if (Platform.OS === 'ios') {
-        date = date.toISOString();
-      }
+      // var date = new Date(Date.now() + (this.state.seconds * 1000));
+      // if (Platform.OS === 'ios') {
+      //   date = date.toISOString();
+      // }
       PushNotification.localNotificationSchedule({
-        message: 'My Notification Message',
-        date
+        message: 'Your Event is about to begin in 15 minutes',
+        //date
+        date: new Date(Date.now() + (this.state.seconds * 1000))
       });
     }
   }
