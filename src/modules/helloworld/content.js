@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 import {
 
   ListView,
-  Alert,
+  //Alert,
   TouchableHighlight,
   Modal,
   Image,
   ScrollView,
-  AppState,
-  Platform
+  AppState
+//  Platform
 } from 'react-native';
 import styles, {stylechoice} from './StyleSheet';
 import content_sections from './content_sections';
@@ -19,7 +19,7 @@ import PushController from './PushController';
 import PushNotification from 'react-native-push-notification';
 //import Collapsible from 'react-native-collapsible';
 //import Accordion from 'react-native-collapsible/Accordion';
-import {createAnimatableComponent, View, Text} from 'react-native-animatable';
+import {View, Text} from 'react-native-animatable';
 
 export default class Content extends Component {
   constructor(props) {
@@ -38,18 +38,18 @@ export default class Content extends Component {
       modalImage: '',
       modalStartTime: '',
       modalEndTime: '',
-      modalLocation: '',
-      seconds: 5
+      modalLocation: ''
+      //seconds: 5
     };
     this.renderScheduleItem = this.renderScheduleItem.bind(this);
     this.setModalVisible = this.setModalVisible.bind(this);
     this.renderInfoButton = this.renderInfoButton.bind(this);
     this.timeConverter = this.timeConverter.bind(this);
-    this.handleAppStateChange = this.handleAppStateChange.bind(this);
+    // this.handleAppStateChange = this.handleAppStateChange.bind(this);
   }
-  componentDidMount() {
-    AppState.addEventListener('change', this.handleAppStateChange);
-  }
+  // componentDidMount() {
+  //   AppState.addEventListener('change', this.handleAppStateChange);
+  // }
   componentWillReceiveProps(nextProps) {
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2,
@@ -60,22 +60,18 @@ export default class Content extends Component {
                   nextProps.favorites, nextProps.baseSchedule))
     });
   }
-  componentWillUnmount() {
-    AppState.removeEventListener('change', this.handleAppStateChange);
-  }
-  handleAppStateChange(appState) {
-    if (appState === 'background') {
-      // var date = new Date(Date.now() + (this.state.seconds * 1000));
-      // if (Platform.OS === 'ios') {
-      //   date = date.toISOString();
-      // }
-      PushNotification.localNotificationSchedule({
-        message: 'Your Event is about to begin in 15 minutes',
-        //date
-        date: new Date(Date.now() + (this.state.seconds * 1000))
-      });
-    }
-  }
+  // componentWillUnmount() {
+  //   AppState.removeEventListener('change', this.handleAppStateChange);
+  // }
+  // handleAppStateChange(appState) {
+  //   if (appState === 'background') {
+  //     PushNotification.localNotificationSchedule({
+  //       message: this.props.favorites + ' is about to begin in 15 minutes',
+  //       //date
+  //       date: new Date(Date.now() + (this.state.seconds * 1000))
+  //     });
+  //   }
+  // }
 
   setModalVisible(visible, title, startTime, endTime, location, extendedDescription, image) {
     this.setState({
@@ -149,6 +145,7 @@ export default class Content extends Component {
              </View>
            </TouchableHighlight>
        </View>
+       <PushController favorites= {item}/>
       </View>
     );
   }
@@ -171,7 +168,6 @@ export default class Content extends Component {
           transparent={false}
           visible={this.state.modalVisible}
           onRequestClose ={() => {
-            //Alert.alert('Modal has been closed!');
             this.setModalVisible(!this.state.modalVisible);
           }}>
           <View style= {styles.innerContainer}>
@@ -199,7 +195,6 @@ export default class Content extends Component {
           renderRow={this.renderScheduleItem}
           renderSectionHeader={this.renderSectionHeader}
       />
-      <PushController/>
       </View>
     );
   }

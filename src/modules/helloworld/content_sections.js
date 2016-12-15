@@ -3,6 +3,7 @@ import _ from 'lodash';
 const content_sections = (data, favorites, schedule) => {
   let dataMap = {};
   schedule.forEach((event) => {
+//if the id of the favorite item is not already in the array then it is now a favorite
     if (_.indexOf(favorites, event.id) > -1)
     {event.isFavorite = true;
       if (!_.some(event.replayEventTypes, (row) => {
