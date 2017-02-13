@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
   },
 
   gamecontroller: {
-    fontSize: 14,
+    fontSize: 18,
     color: stylechoice.accentcolor,
     zIndex: 1,
     paddingTop: 3,
@@ -230,6 +230,12 @@ const styles = StyleSheet.create({
 
   center: {
     alignItems: 'center'
+  },
+
+  alert: {
+    width: 200,
+    height: 50,
+    resizeMode: 'contain'
   }
 });
 

@@ -113,9 +113,11 @@ export default class Content extends Component {
           if (item.isFavorite)
           {
             this.props.removeFavorite(item.id);
+            Alert.alert('Item has been removed from your schedule')
           }
           else {
             this.props.addFavorite(item.id);
+            Alert.alert('Item has been added to your schedule');
           }
         }}>
           <View style={styles.infoIcon} animation= {item.isFavorite ? 'bounce' : 'shake'} delay={400}>
